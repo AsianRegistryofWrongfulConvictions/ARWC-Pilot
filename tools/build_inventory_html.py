@@ -1,10 +1,17 @@
-"""Build inventory.html from the case inventory workbook.
+"""Build pages from the case inventory workbook.
 
-Usage: python3 tools/build_inventory_html.py data/ARWC_Case_Inventory.xlsx inventory.html
+Usage:
+  python3 tools/build_inventory_html.py data/ARWC_Case_Inventory.xlsx inventory.html
+      Internal inventory page with every row and column.
+  python3 tools/build_inventory_html.py data/ARWC_Case_Inventory.xlsx --site index.html
+      Updates the public "Cases under review" data inside the site. Only rows that are not
+      registry records are published, and only public columns: no preliminary category,
+      finality guess or internal notes.
 
 The workbook's "Cases" sheet is the source of truth: edit it, then rerun this script.
 """
 import json
+import re
 import sys
 from datetime import date
 
@@ -229,6 +236,59 @@ render();
 """
 
 
+# Public label for each inventory status; registry records are left out (they are on the site).
+PUBLIC_STATUS = {
+    "Candidate - not screened": "Not yet screened",
+    "Candidate - screened in": "Screened in, being coded",
+    "Pending": "Pending documentation",
+    "Set aside in pilot": "Set aside",
+    "Candidate - screened out": "Screened out",
+    "Excluded (worked example)": "Screened out",
+}
+LANG = {"China": ("zh-Hans", ""), "Taiwan": ("zh-Hant", ""), "Japan": ("ja", ""), "Korea": ("ko", ""),
+        "Israel": ("he", "rtl"), "Pakistan": ("ur", "rtl"), "Vietnam": ("vi", "")}
+
+
+def source_label(url):
+    """Public name for a lead's link: the archive or the website it is on."""
+    if not url:
+        return ""
+    if "usali.org" in url:
+        return "China Wrongful Convictions Case Archive (USALI)"
+    host = re.sub(r"^(www\.|m\.|mobile\.|english\.)", "", url.split("/")[2])
+    return host
+
+
+def public_rows(rows):
+    out = []
+    for r in rows:
+        label = PUBLIC_STATUS.get(r["status"])
+        if not label:
+            continue
+        outcome = re.sub(r"\s*\(?as recalled; to confirm\)?", "", str(r["outcome"])).strip(" ;")
+        lang, direction = LANG.get(r["jur"], ("", ""))
+        out.append({
+            "s": label, "person": r["person"], "local": r["local"], "lang": lang, "dir": direction,
+            "jur": r["jur"], "place": r["place"], "offense": "" if r["offense"] == "To check" else r["offense"],
+            "final": r["final"], "corr": r["corr"], "outcome": "" if outcome == "To check" else outcome,
+            "src": source_label(r["url"]), "url": r["url"],
+            "reason": r["notes"] if label in ("Set aside", "Screened out", "Pending documentation") else "",
+        })
+    return out
+
+
+def update_site(src, index_path):
+    rows = public_rows(read_rows(src))
+    html = open(index_path, encoding="utf-8").read()
+    data = json.dumps(rows, ensure_ascii=False, indent=0).replace("</", "<\\/")
+    new, n = re.subn(r"/\* REVIEW-DATA-START \*/.*?/\* REVIEW-DATA-END \*/",
+                     lambda m: "/* REVIEW-DATA-START */" + data + "/* REVIEW-DATA-END */", html, flags=re.S)
+    if n != 1:
+        sys.exit(f"{index_path}: REVIEW-DATA markers not found")
+    open(index_path, "w", encoding="utf-8").write(new)
+    print(f"{index_path}: {len(rows)} cases under review")
+
+
 def main(src, out):
     rows = read_rows(src)
     data = json.dumps(rows, ensure_ascii=False).replace("</", "<\\/")
@@ -239,4 +299,7 @@ def main(src, out):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:3])
+    if len(sys.argv) == 4 and sys.argv[2] == "--site":
+        update_site(sys.argv[1], sys.argv[3])
+    else:
+        main(*sys.argv[1:3])

@@ -277,6 +277,13 @@ details p{margin:.6rem 0 0;color:var(--ink-2)}
 .refs{font-size:.9rem;color:var(--ink-2);max-width:var(--measure);padding-left:0;list-style:none}
 .refs li{margin:.45rem 0;padding-left:1.6rem;text-indent:-1.6rem}
 .team{font-size:1.05rem}
+[hidden]{display:none !important}
+.review-table tbody tr{cursor:auto}
+.review-table tbody tr:hover{background:none}
+.review-table td:first-child{white-space:normal}
+.review-status{display:inline-block;font-size:.78rem;font-weight:500;color:var(--ink-2);border:1px dashed var(--rule-strong);border-radius:99px;padding:.02rem .55rem;white-space:nowrap}
+.review-status.pend{border-style:solid;border-color:var(--gardenia);color:var(--ink)}
+.review-reason{display:block;font-size:.84rem;color:var(--ink-2);margin-top:.25rem}
 .toc{display:flex;flex-wrap:wrap;gap:.4rem 1.3rem;margin-top:1.2rem;font-size:.95rem}
 .gloss-head{font-size:1.12rem;margin:2.2rem 0 .3rem}
 .gloss{margin:0;max-width:var(--measure)}
@@ -319,6 +326,7 @@ details p{margin:.6rem 0 0;color:var(--ink-2)}
       <a href="#/method" data-nav="method">Methodology</a>
       <a href="#/factors" data-nav="factors">Contributing factors</a>
       <a href="#/glossary" data-nav="glossary">Glossary</a>
+      <a href="#/review" data-nav="review" data-review>Under review</a>
       <a href="#/submit" data-nav="submit">Submit a case</a>
       <a href="#/about" data-nav="about">About</a>
       <a href="#/policies" data-nav="policies">Policies</a>
@@ -340,6 +348,7 @@ details p{margin:.6rem 0 0;color:var(--ink-2)}
       <a href="#/registry">Registry</a>
       <a href="#/method">Methodology</a>
       <a href="#/glossary">Glossary</a>
+      <a href="#/review" data-review>Cases under review</a>
       <a href="#/submit">Submit a case</a>
       <a href="#/policies">Policies</a>
       <a href="#/about/cite">How to cite</a>
@@ -353,6 +362,7 @@ details p{margin:.6rem 0 0;color:var(--ink-2)}
    ========================================================================== */
 const SITE = {
   preview: true,                 // false at launch: hides the preview bar
+  showInventory: true,           // false hides the "Cases under review" page and its links
   contactEmail: "",              // e.g. "contact@your-domain.org"
   baseUrl: "",                   // e.g. "https://www.your-domain.org"
   releaseLabel: "Pilot preview",
@@ -1809,6 +1819,1247 @@ const RECORDS = [
 ];
 
 /* ==========================================================================
+   CASES UNDER REVIEW — publicly reported cases not yet screened against the
+   inclusion criteria. Generated from data/ARWC_Case_Inventory.xlsx by
+   tools/build_inventory_html.py --site; edit the workbook, not this block.
+   Shown only when SITE.showInventory is true.
+   ========================================================================== */
+const REVIEW_CASES = /* REVIEW-DATA-START */[
+{
+"s": "Pending documentation",
+"person": "Sengkon and Karta",
+"local": "",
+"lang": "",
+"dir": "",
+"jur": "Indonesia",
+"place": "Bekasi",
+"offense": "Robbery and murder",
+"final": 1978,
+"corr": 1981,
+"outcome": "Supreme Court review (PK) granted, as reported",
+"src": "thejakartapost.com",
+"url": "https://www.thejakartapost.com/news/2008/09/02/editorial-defending-wrong-judgment.html",
+"reason": "Awaiting a citable copy of the Supreme Court's review decision"
+},
+{
+"s": "Screened out",
+"person": "A (anonymized)",
+"local": "",
+"lang": "",
+"dir": "",
+"jur": "Hong Kong",
+"place": "",
+"offense": "Conspiracy to rob",
+"final": "",
+"corr": 2015,
+"outcome": "Quashed on ordinary appeal",
+"src": "doj.gov.hk",
+"url": "https://www.doj.gov.hk/en/notable_judgments/pdf/HCAL_176_2018e.pdf",
+"reason": "Quashed on ordinary appeal, so the conviction was never final"
+},
+{
+"s": "Set aside",
+"person": "Hubert Webb and co-accused (Vizconde case)",
+"local": "",
+"lang": "",
+"dir": "",
+"jur": "Philippines",
+"place": "",
+"offense": "Rape with homicide",
+"final": "",
+"corr": 2010,
+"outcome": "Supreme Court acquittal on appeal",
+"src": "",
+"url": "",
+"reason": "Corrected on ordinary appeal"
+},
+{
+"s": "Set aside",
+"person": "Asia Bibi",
+"local": "",
+"lang": "ur",
+"dir": "rtl",
+"jur": "Pakistan",
+"place": "",
+"offense": "Blasphemy",
+"final": "",
+"corr": 2018,
+"outcome": "Supreme Court acquittal on appeal",
+"src": "",
+"url": "",
+"reason": "Corrected on ordinary appeal"
+},
+{
+"s": "Set aside",
+"person": "Sandeep Lamichhane",
+"local": "",
+"lang": "",
+"dir": "",
+"jur": "Nepal",
+"place": "",
+"offense": "Rape",
+"final": "",
+"corr": 2024,
+"outcome": "High Court acquittal on appeal",
+"src": "",
+"url": "",
+"reason": "Corrected on ordinary appeal"
+},
+{
+"s": "Set aside",
+"person": "Born Samnang and Sok Sam Oeun",
+"local": "",
+"lang": "",
+"dir": "",
+"jur": "Cambodia",
+"place": "",
+"offense": "Murder",
+"final": "",
+"corr": "",
+"outcome": "Decided within appeal and cassation chain, as reported",
+"src": "",
+"url": "",
+"reason": "Decided within the appeal chain; finality not established"
+},
+{
+"s": "Set aside",
+"person": "Ilgar Mammadov",
+"local": "",
+"lang": "",
+"dir": "",
+"jur": "Azerbaijan",
+"place": "",
+"offense": "Organizing mass disorder",
+"final": "",
+"corr": 2020,
+"outcome": "Supreme Court acquittal after ECtHR judgments",
+"src": "",
+"url": "",
+"reason": "Outside the region covered by the pilot; scope not yet decided"
+},
+{
+"s": "Set aside",
+"person": "Sledgehammer (Balyoz) defendants",
+"local": "",
+"lang": "",
+"dir": "",
+"jur": "Turkey",
+"place": "",
+"offense": "Coup plot",
+"final": "",
+"corr": 2015,
+"outcome": "Retrial acquittal after Constitutional Court ruling",
+"src": "",
+"url": "",
+"reason": "Outside the region covered by the pilot; scope not yet decided"
+},
+{
+"s": "Set aside",
+"person": "Anwar Ibrahim",
+"local": "",
+"lang": "",
+"dir": "",
+"jur": "Malaysia",
+"place": "",
+"offense": "Sodomy",
+"final": "",
+"corr": 2018,
+"outcome": "Full royal pardon",
+"src": "",
+"url": "",
+"reason": "Would qualify only if official documents tie the pardon to wrongful-conviction concerns"
+},
+{
+"s": "Not yet screened",
+"person": "She Xianglin",
+"local": "佘祥林",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Hubei",
+"offense": "Intentional homicide",
+"final": 1998,
+"corr": 2005,
+"outcome": "Retrial acquittal; alleged victim reappeared",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/she-xianglin-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Zhao Zuohai",
+"local": "赵作海",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Henan",
+"offense": "Intentional homicide",
+"final": 2002,
+"corr": 2010,
+"outcome": "Retrial acquittal; alleged victim reappeared",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/zhao-zuohai-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Huugjilt (Huge Jiletu)",
+"local": "呼格吉勒图",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Inner Mongolia",
+"offense": "Rape and murder",
+"final": 1996,
+"corr": 2014,
+"outcome": "Posthumous retrial acquittal; executed 1996",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/huge-jiletu-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Zhang Hui and Zhang Gaoping",
+"local": "张辉、张高平",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Zhejiang",
+"offense": "Rape (victim killed)",
+"final": 2004,
+"corr": 2013,
+"outcome": "Retrial acquittal; state compensation",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/zhang-hui-zhang-gaoping-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Tian Weidong and four others",
+"local": "田伟冬等五人",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Zhejiang (Xiaoshan)",
+"offense": "Robbery and murder",
+"final": "",
+"corr": 2013,
+"outcome": "Retrial acquittal",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/tian-weidong-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Du Peiwu",
+"local": "杜培武",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Yunnan",
+"offense": "Intentional homicide",
+"final": "",
+"corr": 2000,
+"outcome": "Acquittal by Yunnan High Court after real perpetrator found",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/du-peiwu-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Bai Chunrong",
+"local": "白春荣",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Guangdong (Foshan)",
+"offense": "Theft",
+"final": 1988,
+"corr": 2014,
+"outcome": "Acquittal on insufficient evidence",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/bai-chun-rong-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Shen Liujin (Fang Weishe)",
+"local": "沈六斤",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "",
+"offense": "Intentional homicide",
+"final": "",
+"corr": 2016,
+"outcome": "High court acquittal on misidentification",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/shen-liujin-murder-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Guo Li",
+"local": "郭利",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Guangdong",
+"offense": "Extortion",
+"final": "",
+"corr": 2017,
+"outcome": "Acquittal, as reported",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/guo-li-racketeering-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Zeng Fannian",
+"local": "曾凡年",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "",
+"offense": "Extortion",
+"final": "",
+"corr": "",
+"outcome": "",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/zeng-fannian-extortion-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Zeng Aiyun",
+"local": "曾爱云",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Hunan (Xiangtan)",
+"offense": "Intentional homicide",
+"final": "",
+"corr": "",
+"outcome": "Acquittal, as reported",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/zeng-aiyun-murder-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Qian Renfeng",
+"local": "钱仁风",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Yunnan",
+"offense": "Poisoning",
+"final": "",
+"corr": "",
+"outcome": "Retrial ordered 2015; outcome to check",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/qian-renfeng-poison-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Fang Junjin",
+"local": "方俊金",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "",
+"offense": "Illegal intrusion into a dwelling",
+"final": "",
+"corr": "",
+"outcome": "",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/fang-junjin-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Tan Xiuyi",
+"local": "谭修义",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "",
+"offense": "Rape and murder",
+"final": "",
+"corr": "",
+"outcome": "Exonerated, as reported",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/tan-xiuyi-rape-and-murder-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Lu Rongxin",
+"local": "卢荣新",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "",
+"offense": "Rape and murder",
+"final": 2015,
+"corr": 2017,
+"outcome": "High court acquittal; DNA did not match",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/lu-rongxin-rape-and-murder-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Wang Benyu",
+"local": "王本余",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "",
+"offense": "Murder and rape of a girl",
+"final": "",
+"corr": 2013,
+"outcome": "Acquittal after real perpetrator confessed",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/wang-benyu-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Zhang Guangxiang",
+"local": "张光祥",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Guizhou",
+"offense": "Robbery",
+"final": "",
+"corr": "",
+"outcome": "Acquittal about ten years after incarceration, as reported",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/new-zhang-guangxiang-robbery-case-",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Yang Botao",
+"local": "杨波涛",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Henan (Shangqiu)",
+"offense": "Intentional homicide",
+"final": "",
+"corr": "",
+"outcome": "",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/yang-botao-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Wu Chunhong",
+"local": "吴春红",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Henan (Minquan)",
+"offense": "Intentional homicide (poisoning)",
+"final": "",
+"corr": 2020,
+"outcome": "Retrial acquittal",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/wu-chunhong-murder-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Li Huailiang",
+"local": "李怀亮",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Henan",
+"offense": "Intentional homicide",
+"final": "",
+"corr": 2013,
+"outcome": "Acquittal",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/li-huailiang-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Sun Wangang",
+"local": "孙万刚",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Yunnan",
+"offense": "Intentional homicide",
+"final": "",
+"corr": "",
+"outcome": "",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/sun-wangang-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Yang Dewu",
+"local": "杨德武",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Anhui",
+"offense": "Intentional homicide",
+"final": "",
+"corr": 2016,
+"outcome": "Acquittal after case reopened",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/yang-dewu-murder-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Zheng Yonglin",
+"local": "郑永林",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "",
+"offense": "Intentional homicide",
+"final": "",
+"corr": "",
+"outcome": "",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/zheng-yonglin-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Yu Yingsheng",
+"local": "于英生",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Anhui",
+"offense": "Intentional homicide",
+"final": "",
+"corr": 2013,
+"outcome": "Retrial acquittal; police officer later identified",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive/yu-yingsheng-case",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Xie Zhehai",
+"local": "谢哲海",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Henan",
+"offense": "Intentional homicide",
+"final": "",
+"corr": 2022,
+"outcome": "Acquittal by Henan High Court, insufficient evidence",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/new-and-notable/new-additions-to-wrongful-convictions-case-archive",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Liu Zhonglin",
+"local": "刘忠林",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Jilin",
+"offense": "Intentional homicide",
+"final": "",
+"corr": 2018,
+"outcome": "Retrial acquittal",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/new-and-notable/new-additions-to-wrongful-convictions-case-archive",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Chen Man",
+"local": "陈满",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Hainan",
+"offense": "Murder and arson",
+"final": 1994,
+"corr": 2016,
+"outcome": "Retrial acquittal on procuratorate protest",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Nian Bin",
+"local": "念斌",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Fujian",
+"offense": "Poisoning",
+"final": "",
+"corr": 2014,
+"outcome": "Acquittal by Fujian High Court",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Zhang Xinliang",
+"local": "张新亮",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Hebei",
+"offense": "Intentional homicide",
+"final": "",
+"corr": "",
+"outcome": "",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Yang Ming",
+"local": "杨明",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "",
+"offense": "Intentional homicide",
+"final": "",
+"corr": "",
+"outcome": "",
+"src": "China Wrongful Convictions Case Archive (USALI)",
+"url": "https://usali.org/wc-case-archive",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Jin Zhehong",
+"local": "金哲宏",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Jilin",
+"offense": "Intentional homicide",
+"final": "",
+"corr": 2016,
+"outcome": "Retrial acquittal",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Li Jinlian",
+"local": "李锦莲",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Jiangxi",
+"offense": "Poisoning",
+"final": "",
+"corr": 2021,
+"outcome": "Retrial acquittal",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Huang Jiaguang",
+"local": "黄家光",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Hainan",
+"offense": "Intentional homicide",
+"final": "",
+"corr": 2015,
+"outcome": "Retrial acquittal",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Xu Hui",
+"local": "徐辉",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Guangdong",
+"offense": "Rape and murder",
+"final": "",
+"corr": 2014,
+"outcome": "Retrial acquittal",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Teng Xingshan",
+"local": "滕兴善",
+"lang": "zh-Hans",
+"dir": "",
+"jur": "China",
+"place": "Hunan",
+"offense": "Intentional homicide",
+"final": 1989,
+"corr": 2006,
+"outcome": "Posthumous retrial acquittal; executed 1989",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Menda Sakae",
+"local": "免田栄",
+"lang": "ja",
+"dir": "",
+"jur": "Japan",
+"place": "Kumamoto",
+"offense": "Robbery-murder",
+"final": 1952,
+"corr": 1983,
+"outcome": "Retrial acquittal; death row",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Taniguchi Shigeyoshi",
+"local": "谷口繁義",
+"lang": "ja",
+"dir": "",
+"jur": "Japan",
+"place": "Kagawa",
+"offense": "Robbery-murder",
+"final": 1957,
+"corr": 1984,
+"outcome": "Retrial acquittal; death row",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Saitō Yukio",
+"local": "斎藤幸夫",
+"lang": "ja",
+"dir": "",
+"jur": "Japan",
+"place": "Miyagi",
+"offense": "Robbery-murder, arson",
+"final": 1960,
+"corr": 1984,
+"outcome": "Retrial acquittal; death row",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Akahori Masao",
+"local": "赤堀政夫",
+"lang": "ja",
+"dir": "",
+"jur": "Japan",
+"place": "Shizuoka",
+"offense": "Kidnapping, rape and murder",
+"final": 1960,
+"corr": 1989,
+"outcome": "Retrial acquittal; death row",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Sakurai Shōji and Sugiyama Takao",
+"local": "桜井昌司、杉山卓男",
+"lang": "ja",
+"dir": "",
+"jur": "Japan",
+"place": "Ibaraki",
+"offense": "Robbery-murder",
+"final": 1978,
+"corr": 2011,
+"outcome": "Retrial acquittal",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Govinda Prasad Mainali",
+"local": "",
+"lang": "ja",
+"dir": "",
+"jur": "Japan",
+"place": "Tokyo",
+"offense": "Robbery-murder",
+"final": 2003,
+"corr": 2012,
+"outcome": "Retrial acquittal; DNA",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Aoki Keiko and Boku Tatsuo",
+"local": "青木惠子、朴龍晧",
+"lang": "ja",
+"dir": "",
+"jur": "Japan",
+"place": "Osaka",
+"offense": "Arson and murder",
+"final": 2006,
+"corr": 2016,
+"outcome": "Retrial acquittal",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Nishiyama Mika",
+"local": "西山美香",
+"lang": "ja",
+"dir": "",
+"jur": "Japan",
+"place": "Shiga",
+"offense": "Murder",
+"final": 2007,
+"corr": 2020,
+"outcome": "Retrial acquittal",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Miyata Kōshi",
+"local": "宮田浩喜",
+"lang": "ja",
+"dir": "",
+"jur": "Japan",
+"place": "Kumamoto",
+"offense": "Murder",
+"final": 1990,
+"corr": 2019,
+"outcome": "Retrial acquittal",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Yanagihara Hiroshi",
+"local": "柳原浩",
+"lang": "ja",
+"dir": "",
+"jur": "Japan",
+"place": "Toyama",
+"offense": "Rape, attempted rape",
+"final": 2002,
+"corr": 2007,
+"outcome": "Retrial acquittal after real perpetrator found",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Maekawa Shōji",
+"local": "前川彰司",
+"lang": "ja",
+"dir": "",
+"jur": "Japan",
+"place": "Fukui",
+"offense": "Murder",
+"final": 1997,
+"corr": 2025,
+"outcome": "Retrial acquittal (July or August 2025; sources differ)",
+"src": "adnkronos.com",
+"url": "https://english.adnkronos.com/2026/04/28/man-acquitted-over-1986-murder-seeks-state-compensation/",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Fuji Shigeko",
+"local": "冨士茂子",
+"lang": "ja",
+"dir": "",
+"jur": "Japan",
+"place": "Tokushima",
+"offense": "Murder",
+"final": 1958,
+"corr": 1985,
+"outcome": "Posthumous retrial acquittal",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Umeda Yoshimi",
+"local": "梅田義光",
+"lang": "ja",
+"dir": "",
+"jur": "Japan",
+"place": "Hokkaido",
+"offense": "Robbery-murder",
+"final": 1957,
+"corr": 1986,
+"outcome": "Retrial acquittal",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Su Chien-ho, Liu Bin-lang and Chuang Lin-hsun",
+"local": "蘇建和、劉秉郎、莊林勳",
+"lang": "zh-Hant",
+"dir": "",
+"jur": "Taiwan",
+"place": "New Taipei (Xizhi)",
+"offense": "Robbery, rape and murder",
+"final": 1995,
+"corr": 2012,
+"outcome": "Retrial acquittal, final 31 August 2012",
+"src": "taipeitimes.com",
+"url": "https://www.taipeitimes.com/News/front/archives/2012/09/01/2003541675",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Hsu Tzu-chiang",
+"local": "徐自強",
+"lang": "zh-Hant",
+"dir": "",
+"jur": "Taiwan",
+"place": "",
+"offense": "Kidnapping and murder",
+"final": "",
+"corr": 2016,
+"outcome": "Retrial acquittal (as listed)",
+"src": "talkingtaiwan.com",
+"url": "https://talkingtaiwan.com/?p=6809",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Cheng Hsing-tse",
+"local": "鄭性澤",
+"lang": "zh-Hant",
+"dir": "",
+"jur": "Taiwan",
+"place": "Taichung",
+"offense": "Murder of a police officer",
+"final": "",
+"corr": 2017,
+"outcome": "Retrial acquittal",
+"src": "talkingtaiwan.com",
+"url": "https://talkingtaiwan.com/?p=6809",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Hsieh Chih-hung",
+"local": "謝志宏",
+"lang": "zh-Hant",
+"dir": "",
+"jur": "Taiwan",
+"place": "Tainan",
+"offense": "Murder",
+"final": "",
+"corr": "",
+"outcome": "Listed as exonerated 2020 in one source; another reports retrial pending",
+"src": "talkingtaiwan.com",
+"url": "https://talkingtaiwan.com/?p=6809",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Wang Chi-cheng and Hung Shih-wei",
+"local": "王淇政、洪世緯",
+"lang": "zh-Hant",
+"dir": "",
+"jur": "Taiwan",
+"place": "Taichung",
+"offense": "Murder",
+"final": "",
+"corr": 2021,
+"outcome": "Retrial acquittal, 30 December 2021",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Wu Ming-feng",
+"local": "吳明峰",
+"lang": "zh-Hant",
+"dir": "",
+"jur": "Taiwan",
+"place": "",
+"offense": "",
+"final": "",
+"corr": 2021,
+"outcome": "Retrial acquittal, High Court, November 2021",
+"src": "mirrormedia.mg",
+"url": "https://www.mirrormedia.mg/story/20211118web003",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Su Yao-hui",
+"local": "蘇耀輝",
+"lang": "zh-Hant",
+"dir": "",
+"jur": "Taiwan",
+"place": "",
+"offense": "",
+"final": "",
+"corr": 2026,
+"outcome": "Retrial acquittal, 115年度再字第1號",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Lin Chin-kuei",
+"local": "林金貴",
+"lang": "zh-Hant",
+"dir": "",
+"jur": "Taiwan",
+"place": "Kaohsiung",
+"offense": "Murder",
+"final": "",
+"corr": "",
+"outcome": "Retrial acquittal 2018, reversed 2020, acquitted again on second remand",
+"src": "news.pts.org.tw",
+"url": "https://news.pts.org.tw/article/597576",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Chen Lung-chi",
+"local": "陳龍綺",
+"lang": "zh-Hant",
+"dir": "",
+"jur": "Taiwan",
+"place": "",
+"offense": "Rape",
+"final": "",
+"corr": "",
+"outcome": "Retrial acquittal; Y-STR DNA re-evaluated (Hampikian et al., 2017)",
+"src": "doi.org",
+"url": "https://doi.org/10.1016/j.fsigen.2017.08.004",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Kim Shin-hye",
+"local": "김신혜",
+"lang": "ko",
+"dir": "",
+"jur": "Korea",
+"place": "Wando, South Jeolla",
+"offense": "Patricide",
+"final": 2001,
+"corr": 2025,
+"outcome": "Retrial acquittal, 6 January 2025",
+"src": "koreajoongangdaily.com",
+"url": "https://www.koreajoongangdaily.com/korea/daughter-serving-life-sentence-for-fathers-murder-acquitted-after-24-years/12127561",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Choi In-cheol and Jang Dong-ik",
+"local": "최인철, 장동익",
+"lang": "ko",
+"dir": "",
+"jur": "Korea",
+"place": "Busan",
+"offense": "Murder",
+"final": "",
+"corr": 2021,
+"outcome": "Retrial acquittal, Busan High Court; torture found",
+"src": "koreajoongangdaily.com",
+"url": "https://www.koreajoongangdaily.com/korea/busan-court-exonerates-men-imprisoned-21-years-for-murder/10944681",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Mr Choi (anonymized in reports)",
+"local": "",
+"lang": "ko",
+"dir": "",
+"jur": "Korea",
+"place": "Iksan, North Jeolla",
+"offense": "Murder of a taxi driver",
+"final": "",
+"corr": 2016,
+"outcome": "Retrial acquittal",
+"src": "newsis.com",
+"url": "https://mobile.newsis.com/view/NISX20191011_0000796489",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Three men (names to confirm)",
+"local": "",
+"lang": "ko",
+"dir": "",
+"jur": "Korea",
+"place": "Wanju, North Jeolla",
+"offense": "Robbery-murder",
+"final": "",
+"corr": 2016,
+"outcome": "Retrial acquittal",
+"src": "newsis.com",
+"url": "https://mobile.newsis.com/view/NISX20191011_0000796489",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Jeong Won-seop",
+"local": "정원섭",
+"lang": "ko",
+"dir": "",
+"jur": "Korea",
+"place": "Chuncheon",
+"offense": "Rape and murder",
+"final": 1973,
+"corr": 2008,
+"outcome": "Retrial acquittal",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Cho Bong-am",
+"local": "조봉암",
+"lang": "ko",
+"dir": "",
+"jur": "Korea",
+"place": "",
+"offense": "Espionage",
+"final": 1959,
+"corr": 2011,
+"outcome": "Posthumous retrial acquittal",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "People's Revolutionary Party defendants (eight executed)",
+"local": "인혁당 재건위",
+"lang": "ko",
+"dir": "",
+"jur": "Korea",
+"place": "",
+"offense": "National security offenses",
+"final": 1975,
+"corr": 2007,
+"outcome": "Posthumous retrial acquittal",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Huynh Van Nen",
+"local": "Huỳnh Văn Nén",
+"lang": "vi",
+"dir": "",
+"jur": "Vietnam",
+"place": "Bình Thuận",
+"offense": "Murder",
+"final": 2000,
+"corr": 2014,
+"outcome": "Released 2014; public apology 2015; compensation VND 10 billion 2017",
+"src": "dtinews.dantri.com.vn",
+"url": "https://dtinews.dantri.com.vn/vietnam-today/innocent-man-gets-vnd10bn-compensation-payout-20170425110718760.htm",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Han Duc Long",
+"local": "Hàn Đức Long",
+"lang": "vi",
+"dir": "",
+"jur": "Vietnam",
+"place": "Bắc Giang",
+"offense": "Murder and rape",
+"final": "",
+"corr": "",
+"outcome": "Proceedings ended after repeated annulments",
+"src": "",
+"url": "",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Amos Baranes",
+"local": "עמוס ברנס",
+"lang": "he",
+"dir": "rtl",
+"jur": "Israel",
+"place": "",
+"offense": "Murder",
+"final": 1976,
+"corr": 2002,
+"outcome": "Pardon c. 1985; retrial acquittal 2002; compensation 2010",
+"src": "jpost.com",
+"url": "https://www.jpost.com/israel/state-compensates-convicted-killer/article-183757",
+"reason": ""
+},
+{
+"s": "Not yet screened",
+"person": "Gobi a/l Avedian",
+"local": "",
+"lang": "",
+"dir": "",
+"jur": "Singapore",
+"place": "",
+"offense": "Drug importation (capital)",
+"final": "",
+"corr": 2020,
+"outcome": "Court of Appeal reopened and substituted a lesser conviction",
+"src": "",
+"url": "",
+"reason": ""
+}
+]/* REVIEW-DATA-END */;
+
+/* ==========================================================================
    Helpers
    ========================================================================== */
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
@@ -1951,7 +3202,7 @@ function pageRegistry() {
   <div class="page-head">
     <h1>Registry</h1>
     <p class="lead count-note">${plural(nVer, "verified record", "verified records")} and ${plural(nProv, "provisional record", "provisional records")} from ${plural(jur.length, "jurisdiction", "jurisdictions")}. The registry lists documented, officially corrected cases; its counts are not estimates of how often wrongful convictions occur. Records are added as verification is completed.</p>
-    <p class="prose muted small">A provisional record has been coded and source-checked by the coordinating team but not yet confirmed by a co-developer or reviewer who reads the original-language materials. Its open points are listed on the record.</p>
+    <p class="prose muted small">A provisional record has been coded and source-checked by the coordinating team but not yet confirmed by a co-developer or reviewer who reads the original-language materials. Its open points are listed on the record.${SITE.showInventory ? ` Publicly reported cases that have not yet been screened are listed separately under <a href="#/review">cases under review</a>.` : ""}</p>
   </div>
 
   <section aria-labelledby="idxTitle">
@@ -2616,6 +3867,72 @@ function pageGlossary() {
 </div>`;
 }
 
+function pageReview() {
+  const jur = [...new Set(REVIEW_CASES.map(r => r.jur))].sort();
+  const statuses = [...new Set(REVIEW_CASES.map(r => r.s))];
+  const count = pred => REVIEW_CASES.filter(pred).length;
+  return `<div class="wrap">
+  <div class="page-head">
+    <h1>Cases under review</h1>
+    <p class="lead">Publicly reported cases from other archives, innocence projects and the press that may qualify for the registry. ${plural(REVIEW_CASES.length, "case is", "cases are")} listed. None of them is a registry record.</p>
+  </div>
+  <p class="callout"><strong>These are leads, not records.</strong> Dates and outcomes are given as reported by the source named and have not been checked against court documents. Many will not qualify: a conviction corrected on ordinary appeal, for example, was never final. Each case is screened against the <a href="#/method">inclusion criteria</a> before it is coded. If you hold documents on any of these cases, please <a href="#/submit">get in touch</a>.</p>
+
+  <section aria-labelledby="revFind">
+    <h2 id="revFind" class="visually-hidden">Find cases</h2>
+    <div class="controls">
+      <div class="field search"><label for="rq">Search names, places or offenses</label><input id="rq" type="search" autocomplete="off"></div>
+      <div class="field"><label for="rJur">Jurisdiction</label><select id="rJur"><option value="">All</option>${jur.map(j => `<option value="${esc(j)}">${esc(j)} (${count(r => r.jur === j)})</option>`).join("")}</select></div>
+      <div class="field"><label for="rStat">Status</label><select id="rStat"><option value="">All</option>${statuses.map(x => `<option value="${esc(x)}">${esc(x)} (${count(r => r.s === x)})</option>`).join("")}</select></div>
+    </div>
+    <div class="result-bar">
+      <span id="rCount" aria-live="polite"></span>
+      <button type="button" class="linklike" id="rClear">Clear filters</button>
+    </div>
+    <div class="table-scroll">
+      <table class="registry-table review-table">
+        <caption class="visually-hidden">Cases under review</caption>
+        <thead><tr>
+          <th scope="col">Name</th><th scope="col">Jurisdiction</th><th scope="col">Offense</th>
+          <th scope="col" class="r">Convicted</th><th scope="col" class="r">Corrected</th>
+          <th scope="col">Correction, as reported</th><th scope="col">Source</th><th scope="col">Status</th>
+        </tr></thead>
+        <tbody id="rRows"></tbody>
+      </table>
+    </div>
+    <p class="tbl-note">“Convicted” is the year the conviction is reported to have become final, where known. A case marked “source to be added” is listed from general public reporting and still needs a citation.</p>
+  </section>
+</div>`;
+}
+
+function initReview() {
+  const $ = id => document.getElementById(id);
+  const inputs = ["rq", "rJur", "rStat"].map($);
+  const render = () => {
+    const q = $("rq").value.trim().toLowerCase();
+    const list = REVIEW_CASES.filter(r =>
+      (!q || [r.person, r.local, r.jur, r.place, r.offense, r.outcome].join(" ").toLowerCase().includes(q))
+      && (!$("rJur").value || r.jur === $("rJur").value)
+      && (!$("rStat").value || r.s === $("rStat").value))
+      .sort((a, b) => a.jur.localeCompare(b.jur) || (a.corr || 9999) - (b.corr || 9999));
+    $("rCount").textContent = `Showing ${list.length} of ${plural(REVIEW_CASES.length, "case", "cases")}`;
+    $("rClear").hidden = !inputs.some(i => i.value);
+    $("rRows").innerHTML = list.length ? list.map(r => `<tr>
+        <td data-label="Name">${esc(r.person)}${r.local ? ` <span class="muted" lang="${esc(r.lang)}"${r.dir ? ` dir="${r.dir}"` : ""}>${esc(r.local)}</span>` : ""}</td>
+        <td data-label="Jurisdiction">${esc(r.jur)}${r.place ? `<span class="muted">, ${t(r.place, r.lang)}</span>` : ""}</td>
+        <td data-label="Offense">${esc(r.offense) || `<span class="muted">To be confirmed</span>`}</td>
+        <td data-label="Convicted" class="r num">${r.final || ""}</td>
+        <td data-label="Corrected" class="r num">${r.corr || ""}</td>
+        <td data-label="Correction">${t(r.outcome, r.lang) || `<span class="muted">To be confirmed</span>`}</td>
+        <td data-label="Source">${r.url ? `<a href="${esc(r.url)}" rel="noopener">${esc(r.src || "Source")}</a>` : r.src ? esc(r.src) : `<span class="muted">Source to be added</span>`}</td>
+        <td data-label="Status"><span class="review-status${r.s.startsWith("Pending") ? " pend" : ""}">${esc(r.s)}</span>${r.reason ? `<span class="review-reason">${esc(r.reason)}</span>` : ""}</td>
+      </tr>`).join("") : `<tr><td colspan="8" class="empty">No cases match these filters.</td></tr>`;
+  };
+  inputs.forEach(i => i.addEventListener("input", render));
+  $("rClear").addEventListener("click", () => { inputs.forEach(i => (i.value = "")); render(); $("rq").focus(); });
+  render();
+}
+
 function pageSubmit() {
   return `<div class="wrap">
   <div class="page-head">
@@ -2773,7 +4090,7 @@ function pageNotFound(msg) {
 /* ==========================================================================
    Router
    ========================================================================== */
-const TITLES = { "": "Home", registry: "Registry", method: "Methodology", factors: "Contributing factors", glossary: "Glossary", submit: "Submit a case", about: "About", policies: "Policies" };
+const TITLES = { "": "Home", registry: "Registry", method: "Methodology", factors: "Contributing factors", glossary: "Glossary", review: "Cases under review", submit: "Submit a case", about: "About", policies: "Policies" };
 
 function route() {
   const parts = (location.hash.replace(/^#\/?/, "") || "").split("/").filter(Boolean);
@@ -2790,6 +4107,10 @@ function route() {
     case "method": html = pageMethod(); title = TITLES.method; break;
     case "factors": html = pageFactors(); title = TITLES.factors; break;
     case "glossary": html = pageGlossary(); title = TITLES.glossary; break;
+    case "review":
+      if (SITE.showInventory) { html = pageReview(); title = TITLES.review; after = initReview; }
+      else { html = pageNotFound(); title = "Page not found"; }
+      break;
     case "submit": html = pageSubmit(); title = TITLES.submit; break;
     case "about": html = pageAbout(); title = TITLES.about; break;
     case "policies": html = pagePolicies(); title = TITLES.policies; break;
@@ -2832,6 +4153,7 @@ document.getElementById("menuBtn").addEventListener("click", e => {
   e.currentTarget.setAttribute("aria-expanded", String(open));
 });
 document.getElementById("previewBar").hidden = !SITE.preview;
+document.querySelectorAll("[data-review]").forEach(a => (a.hidden = !SITE.showInventory));
 document.getElementById("footerRelease").textContent = `${SITE.releaseLabel}. Codebook ${SITE.codebook}. Last updated ${SITE.updated}.`;
 window.addEventListener("hashchange", route);
 route();
