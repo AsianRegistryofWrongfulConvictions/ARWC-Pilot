@@ -2657,16 +2657,6 @@ function pageSubmit() {
 
 function pageAbout() {
   const doi = `https://doi.org/${SITE.paperDoi}`;
-  const authors = [
-    ["Yiwen (Ophelia) Zhang", "Faculty of Psychology and Neuroscience, Maastricht University"],
-    ["Henry Otgaar", "Maastricht University; Leuven Institute of Criminology, KU Leuven"],
-    ["Yikang Zhang", "Max Planck Institute for the Study of Crime, Security and Law"],
-    ["Nael Sumampouw", "Faculty of Psychology, University of Indonesia"],
-    ["Tsania Isa", "Faculty of Psychology, University of Indonesia"],
-    ["Jianqing Wang", "Department of Psychology, Fudan University"],
-    ["Yoshiyuki Nishi", "Innocence Project Japan; Stanford Law School"],
-    ["Yun-Ching Ko", "Taiwan Innocence Project"]
-  ];
   return `<div class="wrap">
   <div class="page-head">
     <h1>About ARWC</h1>
@@ -2682,9 +2672,7 @@ function pageAbout() {
   <section class="prose" aria-labelledby="a2">
     <h2 id="a2">Team</h2>
     <p class="team">ARWC is led by Yiwen (Ophelia) Zhang, Maastricht University.</p>
-    <p>The registry framework was developed by:</p>
-    <dl class="kv">${authors.map(([n, a]) => `<dt>${esc(n)}</dt><dd>${esc(a)}</dd>`).join("")}</dl>
-    <p class="muted">Affiliations are as given in the framework paper. Roles in the coordinating team and regional co-developers for each jurisdiction will be listed here once confirmed.</p>
+    <p class="muted">Roles in the coordinating team and regional co-developers for each jurisdiction will be listed here once confirmed.</p>
   </section>
 
   <section class="prose" aria-labelledby="a3">
