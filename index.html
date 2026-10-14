@@ -1,0 +1,1166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asian Registry of Wrongful Convictions (ARWC)</title>
+<meta name="description" content="The Asian Registry of Wrongful Convictions documents criminal convictions in Asia that became final and were later officially corrected or acknowledged as wrong.">
+<!-- Preview only: remove this line at launch so search engines can index the site. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='8' cy='16' r='5' fill='none' stroke='%232F4A8A' stroke-width='3'/%3E%3Cpath d='M13 16h7' stroke='%232F4A8A' stroke-width='3'/%3E%3Crect x='20' y='10' width='12' height='12' fill='%23B8841F'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif:ital,wght@0,400;0,600;1,400&family=Noto+Serif+SC:wght@400;600&display=swap">
+<style>
+:root{
+  --paper:#F4F6F9; --surface:#FFFFFF; --ink:#172039; --ink-2:#4E5870;
+  --indigo:#2F4A8A; --indigo-strong:#223A73; --wash:#E4E9F4;
+  --gardenia:#B8841F; --on-accent:#172039;
+  --rule:#D0D7E4; --rule-strong:#9CA8C0;
+  --sans:"Be Vietnam Pro","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,"PingFang SC","Hiragino Sans","Microsoft YaHei",sans-serif;
+  --serif:"Noto Serif",Georgia,"Times New Roman","Noto Serif SC","Songti SC",SimSun,serif;
+  --measure:68ch;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1322; --surface:#151C31; --ink:#E7EAF3; --ink-2:#A9B0C6;
+    --indigo:#A9BBEE; --indigo-strong:#C6D2F6; --wash:#1B2543;
+    --gardenia:#E2B458; --on-accent:#0E1322;
+    --rule:#28314E; --rule-strong:#44507A;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1322; --surface:#151C31; --ink:#E7EAF3; --ink-2:#A9B0C6;
+  --indigo:#A9BBEE; --indigo-strong:#C6D2F6; --wash:#1B2543;
+  --gardenia:#E2B458; --on-accent:#0E1322;
+  --rule:#28314E; --rule-strong:#44507A;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.6}
+:lang(zh-Hans){font-family:"Noto Serif SC","Songti SC",SimSun,serif}
+:lang(zh-Hant){font-family:"Noto Serif TC","Songti TC",PMingLiU,serif}
+:lang(ja){font-family:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif}
+img,svg{max-width:100%}
+a{color:var(--indigo);text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:var(--indigo-strong);text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--gardenia);outline-offset:2px;border-radius:2px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:clamp(1.1rem,4vw,2.5rem)}
+.num{font-variant-numeric:tabular-nums lining-nums}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--paper);padding:.5rem .8rem;z-index:10}
+.skip:focus{left:.5rem}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Header */
+.preview-bar{background:var(--wash);color:var(--ink);font-size:.82rem;padding:.45rem clamp(1.1rem,4vw,2.5rem);border-bottom:1px solid var(--rule)}
+.site-header{border-bottom:1px solid var(--rule)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:.8rem 1.5rem;padding-block:.9rem;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:.75rem;color:var(--ink);text-decoration:none}
+.brand:hover{color:var(--ink);text-decoration:none}
+.mark{width:36px;height:15px;color:var(--indigo);flex:none;overflow:visible}
+.mark-act{fill:var(--gardenia)}
+.brand-text{display:flex;flex-direction:column;line-height:1.15}
+.brand-abbr{font-weight:600;letter-spacing:.03em;font-size:1.05rem}
+.brand-name{font-size:.8rem;color:var(--ink-2)}
+.site-nav{display:flex;gap:.2rem 1.35rem;flex-wrap:wrap}
+.site-nav a{color:var(--ink);text-decoration:none;font-size:.95rem;padding:.3rem 0;border-bottom:2px solid transparent}
+.site-nav a:hover{border-bottom-color:var(--rule-strong)}
+.site-nav a[aria-current="page"]{border-bottom-color:var(--indigo);color:var(--indigo)}
+.menu-btn{display:none}
+@media (max-width:900px){
+  .menu-btn{display:inline-flex;align-items:center;font:inherit;font-size:.92rem;background:none;border:1px solid var(--rule-strong);color:var(--ink);border-radius:6px;padding:.35rem .85rem;cursor:pointer}
+  .site-nav{display:none;flex-direction:column;width:100%;gap:0;padding-top:.3rem}
+  .site-nav.open{display:flex}
+  .site-nav a{padding:.7rem 0;border-bottom:1px solid var(--rule)}
+  .site-nav a:last-child{border-bottom:0}
+  .site-nav a[aria-current="page"]{border-bottom-color:var(--rule);box-shadow:inset 3px 0 0 var(--indigo);padding-left:.75rem}
+}
+
+/* Type */
+main{display:block;padding-block:clamp(2rem,5vw,3.5rem) 4.5rem}
+main:focus{outline:none}
+h1,h2,h3{font-weight:500;line-height:1.15;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.1rem,3vw + 1rem,3rem);letter-spacing:-.02em}
+h2{font-size:clamp(1.45rem,1.1vw + 1rem,1.8rem);letter-spacing:-.012em;margin:3.4rem 0 .9rem}
+h3{font-size:1.08rem;font-weight:600;margin:1.8rem 0 .4rem}
+p{margin:.85rem 0}
+.page-head{max-width:var(--measure)}
+.lead{font-size:clamp(1.08rem,.5vw + 1rem,1.22rem);line-height:1.55;color:var(--ink-2);margin-top:1rem;max-width:var(--measure)}
+.prose{max-width:var(--measure)}
+.prose ul{padding-left:1.15rem;margin:.8rem 0}
+.prose li{margin:.35rem 0}
+.serif{font-family:var(--serif);font-size:1.03rem;line-height:1.78}
+.muted{color:var(--ink-2)}
+.small{font-size:.9rem}
+.placeholder{background:var(--wash);border:1px dashed var(--rule-strong);border-radius:4px;padding:0 .35em}
+.back{display:inline-block;margin-bottom:1.4rem;font-size:.95rem}
+
+/* Buttons */
+.actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.7rem}
+.btn{display:inline-flex;align-items:center;font:inherit;font-size:.98rem;font-weight:500;padding:.64rem 1.05rem;border-radius:6px;border:1.5px solid var(--indigo);color:var(--indigo);background:transparent;text-decoration:none;cursor:pointer;line-height:1.2}
+.btn:hover{background:var(--wash);color:var(--indigo-strong);text-decoration:none}
+.btn.primary{background:var(--indigo);color:var(--paper)}
+.btn.primary:hover{background:var(--indigo-strong);border-color:var(--indigo-strong);color:var(--paper)}
+
+/* Hero */
+.hero h1{font-size:clamp(2.7rem,6.2vw + .6rem,4.9rem);letter-spacing:-.04em;line-height:.98;max-width:12ch}
+.hero .lead{max-width:60ch;margin-top:1.4rem}
+
+/* Record shape: track, nodes, category tiles */
+.shape{margin-top:3rem;padding:1.5rem clamp(1rem,3vw,2rem) 1.3rem;background:var(--surface);border:1px solid var(--rule);border-radius:10px}
+.shape-title{font-size:1rem;font-weight:600;margin:0}
+.track{position:relative;height:46px;margin:2.1rem .8rem .2rem}
+.track .base{position:absolute;left:0;right:0;top:50%;height:1px;background:var(--rule-strong)}
+.track .tick{position:absolute;top:50%;width:1px;height:7px;margin-top:-3px;background:var(--rule-strong)}
+.track .span{position:absolute;top:50%;height:3px;margin-top:-1.5px;background:var(--indigo);transform-origin:left center}
+.track .gap{position:absolute;bottom:62%;transform:translateX(-50%);font-size:.85rem;color:var(--ink-2);white-space:nowrap}
+.track .conv{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;border:2px solid var(--indigo);background:var(--surface)}
+.track .acts{position:absolute;top:50%;transform:translateY(-50%);display:flex;gap:3px}
+.tile{display:inline-grid;place-items:center;width:1.5rem;height:1.5rem;border-radius:3px;background:var(--gardenia);color:var(--on-accent);font-size:.78rem;font-weight:600;line-height:1;flex:none}
+.tile.off{background:transparent;border:1.5px solid var(--rule-strong);color:var(--ink-2)}
+.dot{display:block;width:14px;height:14px;border-radius:50%;border:2px solid var(--indigo);margin-top:.3rem}
+.dot.plain{width:7px;height:7px;border:0;background:var(--rule-strong);margin:.55rem 0 0 3px}
+.events{list-style:none;margin:1.3rem 0 0;padding:0;display:grid;gap:.6rem}
+.events li{display:grid;grid-template-columns:1.5rem 7.2rem 1fr;gap:.2rem .8rem;align-items:start}
+.events .when{font-weight:600}
+.events li.minor .when{font-weight:500;color:var(--ink-2)}
+@media (max-width:560px){
+  .events li{grid-template-columns:1.5rem 1fr}
+  .events .what{grid-column:2}
+}
+.shape-cap{margin:1.3rem 0 0;padding-top:1rem;border-top:1px solid var(--rule);font-size:.92rem;color:var(--ink-2)}
+.cats{display:inline-flex;gap:3px;vertical-align:middle}
+@media (prefers-reduced-motion: no-preference){
+  .animate .span{animation:draw 1.1s cubic-bezier(.2,.7,.2,1) .25s both}
+  .animate .acts,.animate .gap{animation:appear .45s ease-out 1.25s both}
+}
+@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes appear{from{opacity:0}to{opacity:1}}
+
+/* Home */
+.limits{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:1.3rem}
+.limit{border-top:2px solid var(--indigo);padding-top:.9rem}
+.limit h3{margin:0 0 .45rem;font-size:1.15rem}
+.limit p{margin:0;color:var(--ink-2)}
+.split{display:grid;grid-template-columns:1.25fr 1fr;gap:3rem;align-items:start}
+.dated{list-style:none;padding:0;margin:1rem 0 0}
+.dated li{display:grid;grid-template-columns:5.2rem 1fr;gap:1rem;padding:.8rem 0;border-top:1px solid var(--rule)}
+.dated li > span{min-width:0;overflow-wrap:anywhere}
+.prose a,.refs li{overflow-wrap:anywhere}
+.dated li:last-child{border-bottom:1px solid var(--rule)}
+.dated .d{font-weight:600}
+@media (max-width:860px){.limits,.split{grid-template-columns:1fr;gap:1.6rem}}
+
+/* Registry */
+.count-note{max-width:var(--measure)}
+.index{margin-top:1.8rem;background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:.6rem clamp(1rem,3vw,1.6rem) .7rem}
+.index-row{display:grid;grid-template-columns:minmax(12rem,30%) 1fr;gap:1.2rem;align-items:center;padding:.75rem 0;border-top:1px solid var(--rule)}
+.index-row.axis-row{border-top:0;padding:.3rem 0 .1rem}
+.index .track{height:32px;margin:0 .8rem}
+.axis{position:relative;height:1.2rem;margin:0 .8rem;font-size:.78rem;color:var(--ink-2)}
+.axis span{position:absolute;transform:translateX(-50%)}
+.index-label a{font-weight:600}
+.index-label .meta{display:block;font-size:.86rem;color:var(--ink-2)}
+@media (max-width:720px){
+  .index-row{grid-template-columns:1fr;gap:.4rem}
+  .index-row.axis-row > div:first-child{display:none}
+}
+.controls{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:.8rem;align-items:end;margin:2.2rem 0 1rem}
+.field label{display:block;font-size:.85rem;color:var(--ink-2);margin-bottom:.3rem}
+.field input,.field select{width:100%;font:inherit;font-size:.95rem;color:var(--ink);background:var(--surface);border:1px solid var(--rule-strong);border-radius:6px;padding:.55rem .65rem;min-height:2.6rem}
+@media (max-width:1000px){.controls{grid-template-columns:1fr 1fr}.controls .search{grid-column:1/-1}}
+@media (max-width:520px){.controls{grid-template-columns:1fr}}
+.result-bar{display:flex;justify-content:space-between;align-items:center;gap:.5rem 1rem;flex-wrap:wrap;font-size:.92rem;color:var(--ink-2);margin-bottom:.7rem}
+.linklike{background:none;border:0;padding:0;font:inherit;color:var(--indigo);text-decoration:underline;text-underline-offset:.18em;cursor:pointer}
+.table-scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{text-align:left;padding:.75rem .9rem;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{font-weight:600;font-size:.84rem;color:var(--ink-2);background:var(--paper);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+th.r,td.r{text-align:right}
+.registry-table tbody tr{cursor:pointer}
+.registry-table tbody tr:hover{background:var(--wash)}
+.registry-table td:first-child{white-space:nowrap}
+.empty{padding:2rem 1.2rem;text-align:left}
+.legend{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;margin-top:1rem;font-size:.9rem;color:var(--ink-2)}
+.legend span.item{display:inline-flex;align-items:center;gap:.5rem}
+@media (max-width:720px){
+  .registry-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .registry-table tbody tr{display:block;padding:.9rem 1rem;border-bottom:1px solid var(--rule)}
+  .registry-table tbody tr:last-child{border-bottom:0}
+  .registry-table td{display:grid;grid-template-columns:7.8rem 1fr;gap:.6rem;border:0;padding:.2rem 0;text-align:left;white-space:normal}
+  .registry-table td.r{text-align:left}
+  .registry-table td::before{content:attr(data-label);color:var(--ink-2);font-size:.85rem}
+}
+
+/* Record */
+.rid{font-weight:600;color:var(--ink-2);font-size:.95rem}
+.status{display:inline-block;font-size:.84rem;color:var(--ink);background:var(--wash);border-radius:99px;padding:.12rem .65rem;margin-left:.5rem;vertical-align:1px}
+.record-name{margin-top:.55rem}
+.record-name .local{font-weight:400;color:var(--ink-2);margin-left:.3em}
+.record-sub{margin:.7rem 0 0;color:var(--ink-2);font-size:1.08rem;max-width:var(--measure)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(12.5rem,1fr));gap:1rem 2rem;margin:2rem 0 0;padding:1.2rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.facts div{min-width:0}
+.facts dt{font-size:.82rem;color:var(--ink-2)}
+.facts dd{margin:.15rem 0 0;font-weight:500}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin-top:1.1rem}
+.compare > div{background:var(--wash);padding:1.15rem 1.35rem}
+.compare h3{margin:0 0 .5rem}
+.compare ul{margin:.4rem 0 0;padding-left:1.1rem}
+.compare li{margin:.4rem 0}
+.compare p{margin:.4rem 0 0}
+@media (max-width:720px){.compare{grid-template-columns:1fr}}
+.acts-list{list-style:none;padding:0;margin:1.2rem 0 0;display:grid;gap:1.4rem;max-width:var(--measure)}
+.acts-list li{display:grid;grid-template-columns:1.9rem 1fr;gap:.9rem}
+.acts-list h3{margin:0}
+.acts-list p{margin:.3rem 0 0}
+.kv{display:grid;grid-template-columns:max-content 1fr;gap:.3rem 1.1rem;margin:.7rem 0 0;font-size:.93rem}
+.kv dt{color:var(--ink-2)}
+.kv dd{margin:0;min-width:0;overflow-wrap:anywhere}
+@media (max-width:520px){.kv{grid-template-columns:1fr;gap:0}.kv dd{margin-bottom:.45rem}}
+.cat-row{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;margin-top:.8rem;font-size:.92rem;color:var(--ink-2)}
+.cat-row span.item{display:inline-flex;align-items:center;gap:.45rem}
+.factor-list{list-style:none;padding:0;margin:1.1rem 0 0;display:grid;gap:1.05rem;max-width:var(--measure)}
+.factor-list h3{margin:0;font-size:1rem}
+.factor-list p{margin:.2rem 0 0;color:var(--ink-2)}
+.sources h3{font-size:.95rem;margin:1.4rem 0 .3rem}
+.sources ul{margin:0;padding-left:1.1rem}
+.sources li{margin:.3rem 0}
+.cite{font-family:var(--serif);background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:.9rem 1.1rem;max-width:var(--measure);overflow-wrap:anywhere}
+
+/* Methodology and other pages */
+.cat-defs{display:grid;gap:1.3rem;margin-top:1.2rem;max-width:var(--measure)}
+.cat-defs > div{display:grid;grid-template-columns:1.9rem 1fr;gap:.9rem}
+.cat-defs h3{margin:0}
+.cat-defs p{margin:.25rem 0 0}
+ol.steps{list-style:none;counter-reset:s;padding:0;margin:1.1rem 0 0;max-width:var(--measure)}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:2rem 1fr;gap:.6rem;padding:.65rem 0;border-top:1px solid var(--rule)}
+ol.steps li:last-child{border-bottom:1px solid var(--rule)}
+ol.steps li::before{content:counter(s);font-weight:600;color:var(--indigo);font-variant-numeric:tabular-nums}
+ol.steps strong{font-weight:600}
+.tbl-note{font-size:.88rem;color:var(--ink-2);margin-top:.6rem;max-width:var(--measure)}
+.tags{display:flex;flex-wrap:wrap;gap:.45rem;list-style:none;padding:0;margin:1rem 0 0;max-width:80ch}
+.tags li{border:1px solid var(--rule-strong);border-radius:99px;padding:.18rem .7rem;font-size:.88rem;background:var(--surface)}
+details{border-top:1px solid var(--rule);padding:.85rem 0;max-width:var(--measure)}
+details:last-of-type{border-bottom:1px solid var(--rule)}
+summary{cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--indigo);font-size:1.25rem;line-height:1.1}
+details[open] summary::after{content:"\2212"}
+details p{margin:.6rem 0 0;color:var(--ink-2)}
+.refs{font-size:.9rem;color:var(--ink-2);max-width:var(--measure);padding-left:0;list-style:none}
+.refs li{margin:.45rem 0;padding-left:1.6rem;text-indent:-1.6rem}
+.team{font-size:1.05rem}
+.draft-tag{display:inline-block;font-size:.78rem;font-weight:500;color:var(--ink);background:var(--wash);border:1px dashed var(--rule-strong);border-radius:4px;padding:.02rem .45rem;margin-left:.5rem;vertical-align:3px}
+
+/* Footer */
+.site-footer{border-top:1px solid var(--rule);padding:2.2rem 0 2.8rem;font-size:.9rem;color:var(--ink-2)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:1.5rem 3rem}
+.footer-grid p{margin:.3rem 0}
+.footer-grid strong{color:var(--ink);font-weight:600}
+.footer-links{display:flex;flex-wrap:wrap;gap:.4rem 1.3rem;justify-content:flex-end;align-content:start}
+.footer-links a{color:var(--ink-2)}
+@media (max-width:720px){.footer-grid{grid-template-columns:1fr}.footer-links{justify-content:flex-start}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="preview-bar" id="previewBar" hidden>Preview for internal review. Records and policies are drafts and not yet public.</div>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#/">
+      <svg class="mark" viewBox="0 0 36 15" aria-hidden="true"><circle cx="6" cy="7.5" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><line x1="10.2" y1="7.5" x2="24.5" y2="7.5" stroke="currentColor" stroke-width="2"/><rect class="mark-act" x="24.5" y="2" width="11" height="11" rx="1.5"/></svg>
+      <span class="brand-text"><span class="brand-abbr">ARWC</span><span class="brand-name">Asian Registry of Wrongful Convictions</span></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    <nav id="siteNav" class="site-nav" aria-label="Main">
+      <a href="#/registry" data-nav="registry">Registry</a>
+      <a href="#/method" data-nav="method">Methodology</a>
+      <a href="#/factors" data-nav="factors">Contributing factors</a>
+      <a href="#/submit" data-nav="submit">Submit a case</a>
+      <a href="#/about" data-nav="about">About</a>
+      <a href="#/policies" data-nav="policies">Policies</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1"><div class="wrap"><p>Loading…</p></div></main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p><strong>Asian Registry of Wrongful Convictions</strong></p>
+      <p>An independent academic initiative documenting officially corrected wrongful convictions across Asia.</p>
+      <p>Records show documented, officially corrected cases. They are not estimates of how often wrongful convictions occur.</p>
+      <p id="footerRelease"></p>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#/registry">Registry</a>
+      <a href="#/method">Methodology</a>
+      <a href="#/submit">Submit a case</a>
+      <a href="#/policies">Policies</a>
+      <a href="#/about/cite">How to cite</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+/* ==========================================================================
+   SITE SETTINGS — edit these before launch
+   ========================================================================== */
+const SITE = {
+  preview: true,                 // false at launch: hides the preview bar
+  contactEmail: "",              // e.g. "contact@your-domain.org"
+  baseUrl: "",                   // e.g. "https://www.your-domain.org"
+  releaseLabel: "Pilot preview",
+  updated: "16 September 2026",
+  paperDoi: "10.1016/j.fsisyn.2026.100726"
+};
+
+/* ==========================================================================
+   REGISTRY DATA — add verified records to RECORDS. Layout updates itself.
+   Years are numbers; everything else is text. Chinese, Japanese etc. can be
+   used directly; set local.lang for the local-language name.
+   ========================================================================== */
+const CATEGORY = {
+  A: { name: "Judicial reversal",
+       text: "A court later ended, removed or nullified the finding of guilt: retrial acquittals, appellate acquittals after the conviction became final, convictions vacated or annulled, and comparable judicial acts." },
+  B: { name: "Formal acknowledgment of error",
+       text: "A public authority officially recognized that the conviction was wrong or unsafe, even without a full retrial acquittal: prosecutorial admissions, compensation decisions that expressly recognize a wrongful conviction, administrative rectification decisions and equivalent formal acts." },
+  C: { name: "Innocence-related relief",
+       text: "Official relief granted because of documented innocence concerns, short of full judicial exoneration: pardons, commutations or withdrawals after post-conviction review, where the documents tie the relief to doubts about the conviction rather than to mercy alone." }
+};
+
+const FACTORS = [
+  "Coerced or involuntary confession", "Torture or unlawful interrogation",
+  "Police or investigative misconduct", "Prosecutorial misconduct",
+  "Forensic error or improper forensic methods", "Eyewitness misidentification",
+  "Fabricated or altered evidence", "Withheld or suppressed evidence",
+  "Inadequate legal defense", "False accusation", "Real perpetrator identified",
+  "Victim reappeared", "Insufficient evidence acknowledged",
+  "Systemic or structural issues (jurisdiction-specific)", "Other contributing factor"
+];
+
+const RECORDS = [
+  {
+    id: "ARWC-CHN-0001",
+    status: "Verified record",
+    updated: "16 September 2026",
+    name: "Nie Shubin",
+    local: { text: "聂树斌", lang: "zh-Hans" },
+    jurisdiction: "China",
+    place: "Hebei Province",
+    offense: "Intentional murder and rape",
+    offenseLocal: "故意杀人、强奸妇女",
+    offenseType: "Violent",
+    gender: "Male",
+    ageAtConviction: "20",
+    sentence: "Death (executed 27 April 1995)",
+    convicted: 1995,
+    finalDate: "25 April 1995",
+    actions: [
+      { cat: "A", year: 2016, date: "2 December 2016", title: "Retrial acquittal",
+        short: "The Supreme People's Court acquits him on retrial.",
+        body: "The Supreme People's Court retried the case, quashed the original judgments and acquitted Nie Shubin of all charges.",
+        fields: [["Document", "Retrial criminal judgment, (2016)最高法刑再3号"],
+                 ["Issued by", "Supreme People's Court, Second Circuit Court"],
+                 ["Date", "2 December 2016"],
+                 ["Local route", "再审 (retrial) under 审判监督程序 (trial supervision procedure)"]] },
+      { cat: "B", year: 2017, date: "March 2017", title: "State compensation decision",
+        short: "The Hebei Higher People's Court decides on state compensation.",
+        body: "The Hebei Higher People's Court decided to pay Nie Shubin's parents state compensation of RMB 2,681,399.10 under the State Compensation Law (国家赔偿法).",
+        fields: [["Document", "State compensation decision, (2016)冀法赔1号"],
+                 ["Issued by", "Hebei Higher People's Court"],
+                 ["Date", "March 2017"]] }
+    ],
+    triggers: [
+      ["Another person's confession", "Wang Shujin said in January 2005 that he had committed the crime."],
+      ["Family petitions", "Nie Shubin's mother, father and sister petitioned the courts and other authorities from May 2007."]
+    ],
+    basisTitle: "The evidence did not meet the standard for a conviction.",
+    basis: "The Supreme People's Court found no objective evidence identifying Nie Shubin as the perpetrator. The time of the offense, the source of the alleged weapon, and the time and cause of death could not be established. Interrogation records from his first five days in custody, early statements from several key witnesses and an original attendance record were missing. The truthfulness and legality of his confession, and whether someone else committed the crime, were in doubt.",
+    factors: [
+      { label: "Coerced or involuntary confession", tags: ["Coerced or involuntary confession"],
+        note: "The conviction rested mainly on his confession. On retrial, the court found its truthfulness and legality doubtful." },
+      { label: "Insufficient evidence acknowledged", tags: ["Insufficient evidence acknowledged"],
+        note: "The retrial judgment found no objective evidence identifying him and held that the evidence did not form a complete chain." },
+      { label: "Investigative and prosecutorial misconduct", tags: ["Police or investigative misconduct", "Prosecutorial misconduct"],
+        note: "The retrial judgment noted missing interrogation, witness and attendance records from the original investigation. The offense was also left out of the charges in Wang Shujin's own prosecution, which prolonged the dispute over the conviction." },
+      { label: "Real perpetrator identified", tags: ["Real perpetrator identified"],
+        note: "Wang Shujin said in 2005 that he had committed the crime. The retrial judgment treated whether someone else committed it as an open doubt, not as a finding." },
+      { label: "Inadequate legal defense", tags: ["Inadequate legal defense"],
+        note: "Coded from secondary accounts describing limited defense challenge to the confession evidence." },
+      { label: "Systemic or structural issues (jurisdiction-specific)", tags: ["Systemic or structural issues (jurisdiction-specific)"],
+        note: "Coded with reference to research on confession-centered investigation and high conviction rates in China (He, 2016; Zhong & Dai, 2019)." }
+    ],
+    finality: "Under China's two-instance system (两审终审制), the conviction became final with the Hebei Higher People's Court's second-instance judgment of 25 April 1995, which also approved the death sentence. The retrial acquittal came 21 years later.",
+    details: [
+      ["Legal system family", "Civil law (continental), 大陆法系"],
+      ["Procedural system", "Inquisitorial with limited adversarial elements"],
+      ["Institutions involved", "Shijiazhuang Intermediate People's Court (first instance); Hebei Higher People's Court (second instance, death sentence approval, compensation); Shandong Higher People's Court (review); Supreme People's Court, Second Circuit Court (retrial)"]
+    ],
+    timeline: [
+      { when: "11 August 1994", what: "The victim's body is found in a cornfield west of Kongzhai village, on the outskirts of Shijiazhuang." },
+      { when: "23 September 1994", what: "Nie Shubin is arrested." },
+      { when: "15 March 1995", what: "The Shijiazhuang Intermediate People's Court convicts him of intentional murder and rape and sentences him to death." },
+      { when: "25 April 1995", kind: "final", what: "The Hebei Higher People's Court upholds the murder conviction and death sentence, changes the rape sentence to 15 years and approves the execution. The conviction is final." },
+      { when: "27 April 1995", what: "Nie Shubin is executed." },
+      { when: "January 2005", what: "Wang Shujin, caught by police in Xingyang, Henan Province, says he committed the crime." },
+      { when: "From May 2007", what: "Nie Shubin's mother, father and sister petition the Hebei Higher People's Court and other authorities." },
+      { when: "4 December 2014", what: "At the Hebei court's request, the Supreme People's Court directs the Shandong Higher People's Court to review the case." },
+      { when: "6 June 2016", what: "After Shandong recommends a retrial, the Supreme People's Court decides to retry the case itself." },
+      { when: "2 December 2016", kind: "A", what: "The Supreme People's Court quashes the conviction and acquits Nie Shubin." },
+      { when: "March 2017", kind: "B", what: "The Hebei Higher People's Court decides on state compensation for his parents." }
+    ],
+    summary: [
+      "Nie Shubin was convicted in 1995 of the rape and murder of a woman whose body had been found in a cornfield on the outskirts of Shijiazhuang in August 1994. He was sentenced to death. On appeal, the Hebei Higher People's Court upheld the murder conviction and the death sentence and approved the execution under powers delegated by the Supreme People's Court. He was executed on 27 April 1995, after 217 days in custody. The conviction rested mainly on his confession, which the courts treated as consistent with the other evidence in the file.",
+      "In January 2005 another man, Wang Shujin, said that he had committed the crime. His statement was widely reported, and from May 2007 Nie Shubin's family petitioned for the conviction to be overturned. In December 2014, at the request of the Hebei Higher People's Court, the Supreme People's Court sent the case to the Shandong Higher People's Court for review. Shandong concluded that the evidence was not reliable and sufficient and recommended a retrial.",
+      "The Supreme People's Court took the case itself in June 2016 and, because Nie Shubin had been executed, decided it without a hearing. On 2 December 2016 it quashed the original judgments and acquitted him, 21 years after the conviction became final. In March 2017 the Hebei Higher People's Court decided to pay his parents state compensation."
+    ],
+    sources: [
+      { group: "Court judgments and decisions", items: [
+        { text: "Supreme People's Court. Retrial criminal judgment, (2016)最高法刑再3号. 2 December 2016." },
+        { text: "Supreme People's Court. Retrial decision, (2016)最高法刑申188号. 6 June 2016." },
+        { text: "Hebei Higher People's Court. Second-instance criminal judgment, (1995)冀刑一终字第129号. 25 April 1995." },
+        { text: "Shijiazhuang Intermediate People's Court. First-instance criminal judgment, (1995)石刑初字第53号. 15 March 1995." } ] },
+      { group: "Compensation decision", items: [
+        { text: "Hebei Higher People's Court. State compensation decision, (2016)冀法赔1号. March 2017." } ] },
+      { group: "Official court publication", items: [
+        { text: "Supreme People's Court. 最高人民法院再审改判聂树斌无罪 [Supreme People's Court acquits Nie Shubin on retrial]. 2 December 2016.",
+          url: "https://www.court.gov.cn/zixun/xiangqing/33331.html" } ] },
+      { group: "Academic publications (background)", items: [
+        { text: "He, J. (2016). Miscarriage of justice and malpractice in criminal investigations in China. China Review, 16, 65–94." },
+        { text: "Zhong, L., & Dai, M. (2019). The politics of wrongful convictions in China. Journal of Contemporary China, 28(116), 260–276." } ] },
+      { group: "Media reports (supporting context only)", items: [
+        { text: "Xinhua. 聂树斌案获赔偿268万余元 [Nie Shubin case: compensation of over RMB 2.68 million]. 30 March 2017.",
+          url: "http://www.xinhuanet.com/legal/2017-03/30/c_1120727450.htm" } ] }
+    ]
+  }
+];
+
+/* ==========================================================================
+   Helpers
+   ========================================================================== */
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+const CJK = /[\u3000-\u303F\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF]+(?:[\s\d（）()、，。·:：\-]*[\u3000-\u303F\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF]+)*/g;
+const t = (s, lang = "zh-Hans") => esc(s).replace(CJK, m => `<span lang="${lang}">${m}</span>`);
+const firstAction = r => r.actions.slice().sort((a, b) => a.year - b.year)[0];
+const gapYears = r => firstAction(r).year - r.convicted;
+const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+const contactLink = () => SITE.contactEmail
+  ? `<a href="mailto:${esc(SITE.contactEmail)}">${esc(SITE.contactEmail)}</a>`
+  : `<span class="placeholder">contact address to be added</span>`;
+
+function catTiles(cats, withOff = true) {
+  const keys = withOff ? ["A", "B", "C"] : cats;
+  const label = `Official action ${cats.join(" and ")}: ` + cats.map(c => CATEGORY[c].name).join("; ");
+  return `<span class="cats" role="img" aria-label="${esc(label)}">` +
+    keys.map(k => `<span class="tile${cats.includes(k) ? "" : " off"}" aria-hidden="true">${k}</span>`).join("") +
+    `</span>`;
+}
+
+function track(r, start, end, opts = {}) {
+  const pct = y => ((y - start) / (end - start)) * 100;
+  const acts = r.actions.slice().sort((a, b) => a.year - b.year);
+  const x0 = pct(r.convicted), x1 = pct(acts[0].year);
+  const clusterW = acts.length * 24 + (acts.length - 1) * 3;
+  const ticks = (opts.ticks || []).map(y => `<span class="tick" style="left:${pct(y)}%"></span>`).join("");
+  const gapLabel = opts.gapLabel ? `<span class="gap num" style="left:${(x0 + x1) / 2}%">${plural(gapYears(r), "year", "years")}</span>` : "";
+  return `<div class="track${opts.animate ? " animate" : ""}" aria-hidden="true">
+      <span class="base"></span>${ticks}
+      <span class="span" style="left:${x0}%;width:${x1 - x0}%"></span>
+      ${gapLabel}
+      <span class="conv" style="left:${x0}%"></span>
+      <span class="acts" style="left:min(calc(${x1}% - 12px), calc(100% - ${clusterW}px))">${acts.map(a => `<span class="tile">${a.cat}</span>`).join("")}</span>
+    </div>`;
+}
+
+function axisRange(records) {
+  const minY = Math.min(...records.map(r => r.convicted));
+  const maxY = Math.max(2026, ...records.flatMap(r => r.actions.map(a => a.year)));
+  const start = Math.floor((minY - 3) / 10) * 10;
+  const end = maxY + 1;
+  const ticks = [];
+  for (let y = start; y <= end; y += 10) ticks.push(y);
+  return { start, end, ticks };
+}
+
+/* ==========================================================================
+   Pages
+   ========================================================================== */
+function pageHome() {
+  const r = RECORDS[0];
+  const acts = r.actions.slice().sort((a, b) => a.year - b.year);
+  const lastYear = acts[acts.length - 1].year;
+  return `<div class="wrap">
+  <section class="hero">
+    <h1>Final convictions, later corrected.</h1>
+    <p class="lead">The Asian Registry of Wrongful Convictions (ARWC) documents criminal convictions that became final under local law and were later overturned, or formally acknowledged as wrong, by a court or another public authority.</p>
+    <div class="actions">
+      <a class="btn primary" href="#/registry">Browse the registry</a>
+      <a class="btn" href="#/method">See how cases qualify</a>
+    </div>
+
+    <figure class="shape" aria-labelledby="shapeTitle">
+      <p class="shape-title" id="shapeTitle">Every record has the same shape</p>
+      ${track(r, r.convicted, lastYear, { animate: true, gapLabel: true })}
+      <ol class="events">
+        <li><span class="dot" aria-hidden="true"></span><span class="when num">${r.convicted}</span><span class="what">The conviction becomes final when the Hebei Higher People's Court upholds it on appeal.</span></li>
+        ${acts.map(a => `<li><span class="tile" aria-hidden="true">${a.cat}</span><span class="when num">${a.year}</span><span class="what">${t(a.short)} <span class="muted">${CATEGORY[a.cat].name}.</span></span></li>`).join("")}
+      </ol>
+      <figcaption class="shape-cap">A conviction that became final, then at least one official act that corrected or acknowledged it. Shown: <a href="#/record/${r.id}">${esc(r.name)} (<span lang="${r.local.lang}">${esc(r.local.text)}</span>), ${r.id}</a>.</figcaption>
+    </figure>
+  </section>
+
+  <section aria-labelledby="limitsTitle">
+    <h2 id="limitsTitle">Three limits on what the records show</h2>
+    <div class="limits">
+      <div class="limit">
+        <h3>Counts are not prevalence</h3>
+        <p>The registry lists cases that were documented and officially corrected. A jurisdiction with more records may simply have more transparent correction routes or better access to records. The numbers cannot be used to rank countries.</p>
+      </div>
+      <div class="limit">
+        <h3>Absence is not evidence</h3>
+        <p>If a country or case is missing, no verifiable, officially corrected case has been captured under our criteria yet. It does not mean wrongful convictions do not happen there.</p>
+      </div>
+      <div class="limit">
+        <h3>We do not rule on innocence</h3>
+        <p>Every record rests on an official act by the legal system itself. ARWC reports that act and the reasons given for it, and does not assess guilt or innocence on its own.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="split">
+    <section aria-labelledby="whyTitle">
+      <h2 id="whyTitle">Why a regional registry</h2>
+      <div class="prose">
+        <p>Information about wrongful convictions in Asia is scattered across court documents, media reports and government agencies, and much of it is published only in national languages that international research rarely reaches. Few jurisdictions keep a central record of corrected convictions.</p>
+        <p>ARWC brings verified cases into one structured record for researchers, legal practitioners, journalists, policymakers and students. Local legal terms and procedures stay visible next to the shared fields, so comparison does not erase legal difference.</p>
+      </div>
+    </section>
+    <section aria-labelledby="newsTitle">
+      <h2 id="newsTitle">News and publications</h2>
+      <ul class="dated">
+        <li><span class="d num">Sep 2026</span><span>Presentation of the registry framework at the European Association of Psychology and Law conference.</span></li>
+        <li><span class="d num">2026</span><span>Framework paper published in <em>Forensic Science International: Synergy</em>. <a href="https://doi.org/${SITE.paperDoi}">Read the paper</a></span></li>
+      </ul>
+    </section>
+  </div>
+</div>`;
+}
+
+function pageRegistry() {
+  const jur = [...new Set(RECORDS.map(r => r.jurisdiction))].sort();
+  const types = [...new Set(RECORDS.map(r => r.offenseType))].sort();
+  const usedFactors = FACTORS.filter(f => RECORDS.some(r => r.factors.some(x => x.tags.includes(f))));
+  const count = (pred) => RECORDS.filter(pred).length;
+  return `<div class="wrap">
+  <div class="page-head">
+    <h1>Registry</h1>
+    <p class="lead count-note">${plural(RECORDS.length, "verified record", "verified records")}. The registry lists documented, officially corrected cases; its counts are not estimates of how often wrongful convictions occur. Records are added as verification is completed.</p>
+  </div>
+
+  <section aria-labelledby="idxTitle">
+    <h2 id="idxTitle" class="visually-hidden">Timeline of records</h2>
+    <div class="index" id="index"></div>
+    <div class="legend" aria-hidden="false">
+      <span class="item"><span class="dot" style="margin:0" aria-hidden="true"></span>Conviction year</span>
+      <span class="item"><span class="tile" aria-hidden="true">A</span>Judicial reversal</span>
+      <span class="item"><span class="tile" aria-hidden="true">B</span>Formal acknowledgment of error</span>
+      <span class="item"><span class="tile" aria-hidden="true">C</span>Innocence-related relief</span>
+    </div>
+  </section>
+
+  <section aria-labelledby="findTitle">
+    <h2 id="findTitle" class="visually-hidden">Find records</h2>
+    <div class="controls">
+      <div class="field search"><label for="q">Search names, offenses or IDs</label><input id="q" type="search" autocomplete="off"></div>
+      <div class="field"><label for="fJur">Jurisdiction</label><select id="fJur"><option value="">All</option>${jur.map(j => `<option value="${esc(j)}">${esc(j)} (${count(r => r.jurisdiction === j)})</option>`).join("")}</select></div>
+      <div class="field"><label for="fCat">Official action</label><select id="fCat"><option value="">All</option>${["A","B","C"].map(c => `<option value="${c}">${c}: ${CATEGORY[c].name} (${count(r => r.actions.some(a => a.cat === c))})</option>`).join("")}</select></div>
+      <div class="field"><label for="fType">Offense type</label><select id="fType"><option value="">All</option>${types.map(x => `<option value="${esc(x)}">${esc(x)} (${count(r => r.offenseType === x)})</option>`).join("")}</select></div>
+      <div class="field"><label for="fFac">Contributing factor</label><select id="fFac"><option value="">All</option>${usedFactors.map(f => `<option value="${esc(f)}">${esc(f)} (${count(r => r.factors.some(x => x.tags.includes(f)))})</option>`).join("")}</select></div>
+    </div>
+    <div class="result-bar">
+      <span id="resultCount" aria-live="polite"></span>
+      <button type="button" class="linklike" id="clearBtn">Clear filters</button>
+    </div>
+    <div class="table-scroll">
+      <table class="registry-table">
+        <caption class="visually-hidden">Registry records. Select a row to open the record.</caption>
+        <thead><tr>
+          <th scope="col">ID</th><th scope="col">Name</th><th scope="col">Jurisdiction</th><th scope="col">Offense</th>
+          <th scope="col" class="r">Convicted</th><th scope="col" class="r">First official action</th><th scope="col">Categories</th><th scope="col" class="r">Years between</th>
+        </tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <p class="tbl-note">A record can carry more than one category. Categories describe what the official act did, not what the local procedure is called.</p>
+  </section>
+</div>`;
+}
+
+function initRegistry() {
+  const $ = id => document.getElementById(id);
+  const inputs = ["q", "fJur", "fCat", "fType", "fFac"].map($);
+  const render = () => {
+    const q = $("q").value.trim().toLowerCase();
+    const list = RECORDS.filter(r => {
+      const hay = [r.id, r.name, r.local.text, r.offense, r.offenseLocal, r.jurisdiction, r.place].join(" ").toLowerCase();
+      return (!q || hay.includes(q))
+        && (!$("fJur").value || r.jurisdiction === $("fJur").value)
+        && (!$("fCat").value || r.actions.some(a => a.cat === $("fCat").value))
+        && (!$("fType").value || r.offenseType === $("fType").value)
+        && (!$("fFac").value || r.factors.some(x => x.tags.includes($("fFac").value)));
+    }).sort((a, b) => a.convicted - b.convicted);
+
+    $("resultCount").textContent = `Showing ${list.length} of ${plural(RECORDS.length, "record", "records")}`;
+    $("clearBtn").hidden = !inputs.some(i => i.value);
+
+    $("rows").innerHTML = list.length ? list.map(r => {
+      const cats = [...new Set(r.actions.map(a => a.cat))].sort();
+      return `<tr data-id="${r.id}">
+        <td data-label="ID" class="num"><a href="#/record/${r.id}">${r.id}</a></td>
+        <td data-label="Name">${esc(r.name)} <span lang="${r.local.lang}" class="muted">${esc(r.local.text)}</span></td>
+        <td data-label="Jurisdiction">${esc(r.jurisdiction)}<span class="muted">, ${esc(r.place)}</span></td>
+        <td data-label="Offense">${esc(r.offense)}</td>
+        <td data-label="Convicted" class="r num">${r.convicted}</td>
+        <td data-label="First official action" class="r num">${firstAction(r).year}</td>
+        <td data-label="Categories">${catTiles(cats)}</td>
+        <td data-label="Years between" class="r num">${gapYears(r)}</td>
+      </tr>`;
+    }).join("") : `<tr><td colspan="8" class="empty">No records match these filters. <button type="button" class="linklike" data-clear>Clear filters</button> to see all records.</td></tr>`;
+
+    const idx = $("index");
+    if (!list.length) { idx.innerHTML = `<p class="muted small" style="margin:.6rem 0">No records to show on the timeline.</p>`; return; }
+    const { start, end, ticks } = axisRange(list);
+    const pct = y => ((y - start) / (end - start)) * 100;
+    idx.innerHTML = `<div class="index-row axis-row"><div></div><div class="axis num">${ticks.map(y => `<span style="left:${pct(y)}%">${y}</span>`).join("")}</div></div>` +
+      list.map(r => `<div class="index-row">
+        <div class="index-label"><a href="#/record/${r.id}">${esc(r.name)}</a> <span lang="${r.local.lang}" class="muted">${esc(r.local.text)}</span>
+          <span class="meta num">${esc(r.jurisdiction)}, ${r.convicted} to ${firstAction(r).year}, ${plural(gapYears(r), "year", "years")}</span></div>
+        ${track(r, start, end, { ticks })}
+      </div>`).join("");
+  };
+  inputs.forEach(i => i.addEventListener("input", render));
+  const clear = () => { inputs.forEach(i => (i.value = "")); render(); $("q").focus(); };
+  $("clearBtn").addEventListener("click", clear);
+  $("rows").addEventListener("click", e => {
+    if (e.target.closest("[data-clear]")) return clear();
+    const tr = e.target.closest("tr[data-id]");
+    if (tr && !e.target.closest("a")) location.hash = `#/record/${tr.dataset.id}`;
+  });
+  render();
+}
+
+function pageRecord(id) {
+  const r = RECORDS.find(x => x.id === id);
+  if (!r) return pageNotFound(`There is no record with the ID ${esc(id)}.`);
+  const cats = [...new Set(r.actions.map(a => a.cat))].sort();
+  const fa = firstAction(r);
+  const lastYear = Math.max(...r.actions.map(a => a.year));
+  const citeUrl = SITE.baseUrl ? `${esc(SITE.baseUrl)}/#/record/${r.id}` : `<span class="placeholder">registry web address</span>`;
+  return `<div class="wrap">
+  <a class="back" href="#/registry">All records</a>
+  <header class="record-head">
+    <div><span class="rid num">${r.id}</span><span class="status">${esc(r.status)}</span></div>
+    <h1 class="record-name">${esc(r.name)}<span class="local" lang="${r.local.lang}">${esc(r.local.text)}</span></h1>
+    <p class="record-sub">${esc(r.offense)} (${t(r.offenseLocal)}). ${esc(r.jurisdiction)}, ${esc(r.place)}.</p>
+  </header>
+
+  <dl class="facts">
+    <div><dt>Sentence</dt><dd>${esc(r.sentence)}</dd></div>
+    <div><dt>Offense type</dt><dd>${esc(r.offenseType)}</dd></div>
+    <div><dt>Gender and age at conviction</dt><dd>${esc(r.gender)}, ${esc(r.ageAtConviction)}</dd></div>
+    <div><dt>Conviction final</dt><dd class="num">${esc(r.finalDate)}</dd></div>
+    <div><dt>First official action</dt><dd class="num">${esc(fa.date)}</dd></div>
+    <div><dt>Years between</dt><dd class="num">${gapYears(r)}</dd></div>
+  </dl>
+
+  <section aria-labelledby="tlTitle">
+    <h2 id="tlTitle">Timeline</h2>
+    <div class="shape" style="margin-top:1rem">
+      ${track(r, r.convicted, lastYear, { gapLabel: true })}
+      <ol class="events">
+        ${r.timeline.map(e => {
+          const mk = e.kind === "final" ? `<span class="dot" aria-hidden="true"></span>`
+                   : e.kind ? `<span class="tile" aria-hidden="true">${e.kind}</span>`
+                   : `<span class="dot plain" aria-hidden="true"></span>`;
+          return `<li class="${e.kind ? "" : "minor"}">${mk}<span class="when num">${esc(e.when)}</span><span class="what">${t(e.what)}</span></li>`;
+        }).join("")}
+      </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="actTitle">
+    <h2 id="actTitle">Official actions</h2>
+    <div class="cat-row">${catTiles(cats)}<span>${cats.map(c => `${c}: ${CATEGORY[c].name}`).join("; ")}</span></div>
+    <ol class="acts-list">
+      ${r.actions.map(a => `<li><span class="tile" aria-hidden="true">${a.cat}</span><div>
+        <h3>${esc(a.title)} <span class="muted" style="font-weight:400">(${CATEGORY[a.cat].name})</span></h3>
+        <p>${t(a.body)}</p>
+        <dl class="kv">${a.fields.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${t(v)}</dd>`).join("")}</dl>
+      </div></li>`).join("")}
+    </ol>
+  </section>
+
+  <section aria-labelledby="whyTitle2">
+    <h2 id="whyTitle2">What prompted the correction, and the reason given</h2>
+    <p class="prose muted">The registry records these separately because what prompts a correction and the reason an authority states for it often differ.</p>
+    <div class="compare">
+      <div>
+        <h3>What prompted it</h3>
+        <ul>${r.triggers.map(([h, d]) => `<li><strong>${esc(h)}.</strong> ${t(d)}</li>`).join("")}</ul>
+      </div>
+      <div>
+        <h3>Basis stated in the decision</h3>
+        <p><strong>${esc(r.basisTitle)}</strong> ${t(r.basis)}</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="sumTitle">
+    <h2 id="sumTitle">Summary</h2>
+    <div class="prose serif">${r.summary.map(p => `<p>${t(p)}</p>`).join("")}</div>
+  </section>
+
+  <section aria-labelledby="facTitle">
+    <h2 id="facTitle">Contributing factors</h2>
+    <p class="prose muted">Coded by the ARWC team from the case documentation. Several factors can apply to one case.</p>
+    <ul class="factor-list">${r.factors.map(f => `<li><h3>${esc(f.label)}</h3><p>${t(f.note)}</p></li>`).join("")}</ul>
+  </section>
+
+  <section aria-labelledby="finTitle">
+    <h2 id="finTitle">Finality</h2>
+    <p class="prose">${t(r.finality)}</p>
+  </section>
+
+  <section aria-labelledby="jurTitle">
+    <h2 id="jurTitle">Jurisdiction details</h2>
+    <p class="prose muted">Legal system labels are recorded as provided by the contributor; ARWC does not assign them.</p>
+    <dl class="kv" style="max-width:var(--measure)">${r.details.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${t(v)}</dd>`).join("")}<dt>Classification source</dt><dd><span class="placeholder">role-level credit to be added</span></dd></dl>
+  </section>
+
+  <section aria-labelledby="srcTitle" class="sources">
+    <h2 id="srcTitle">Sources</h2>
+    <p class="prose muted">Listed in order of evidentiary weight. Media reports are supporting context and never the basis for inclusion.</p>
+    ${r.sources.map(g => `<h3>${esc(g.group)}</h3><ul>${g.items.map(s => `<li>${t(s.text)}${s.url ? ` <a href="${esc(s.url)}" rel="noopener">Link</a>` : ""}</li>`).join("")}</ul>`).join("")}
+  </section>
+
+  <section aria-labelledby="citeTitle">
+    <h2 id="citeTitle">Cite this record</h2>
+    <p class="cite">Asian Registry of Wrongful Convictions. (2026). <em>${esc(r.name)} (${r.id})</em>. Last updated ${esc(r.updated)}. ${citeUrl}</p>
+    <h3>Report an error</h3>
+    <p class="prose">If you think a detail in this record is wrong, write to ${contactLink()} with the source that shows it. See the <a href="#/policies">corrections policy</a>.</p>
+  </section>
+</div>`;
+}
+
+function pageMethod() {
+  return `<div class="wrap">
+  <div class="page-head">
+    <h1>Methodology</h1>
+    <p class="lead">How a case enters the registry, what each record contains, and what the records can and cannot tell you.</p>
+  </div>
+
+  <section class="prose" aria-labelledby="m1">
+    <h2 id="m1">What counts as a wrongful conviction</h2>
+    <p>For ARWC, a wrongful conviction is a criminal conviction that has been officially corrected or acknowledged as erroneous through post-conviction processes. The registry does not assess innocence itself. A case is included because of a verifiable official act taken after the conviction became final under local law.</p>
+    <p>This definition is deliberately broader than exoneration alone. Some systems correct errors through retrial acquittals; others through a prosecutor's withdrawal, a compensation decision or an administrative rectification. Requiring one kind of legal outcome would exclude jurisdictions that recognize error through different routes.</p>
+  </section>
+
+  <section class="prose" aria-labelledby="m2">
+    <h2 id="m2">Principles</h2>
+    <h3>Verifiability</h3><p>Every case rests on a traceable official act, not on allegation or advocacy.</p>
+    <h3>Finality</h3><p>The original conviction must have become final under the jurisdiction's ordinary procedures before the corrective act.</p>
+    <h3>Partial harmonization</h3><p>A core set of fields is standardized for comparison, while local procedural labels, local-language terms and legal context are kept.</p>
+    <h3>Stated limits</h3><p>The registry documents officially recognized cases. It does not estimate prevalence, and its counts do not measure how often wrongful convictions occur anywhere.</p>
+  </section>
+
+  <section aria-labelledby="m3">
+    <h2 id="m3">How a case qualifies</h2>
+    <p class="prose">A case is assessed in this order.</p>
+    <ol class="steps">
+      <li><div><strong>The conviction was final.</strong> All ordinary appeals were completed, the time to appeal expired, or the judgment otherwise took legal effect under local law. Extraordinary remedies such as retrial petitions do not need to be exhausted. Finality is a stability requirement, not a judgment about guilt or innocence.</div></li>
+      <li><div><strong>An official act followed.</strong> After the conviction became final, a court or another public authority took at least one of the actions in categories A, B or C.</div></li>
+      <li><div><strong>The act is documented.</strong> At least one traceable official document, or an equivalent authoritative record, supports it.</div></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="m4">
+    <h2 id="m4">Categories of official action</h2>
+    <div class="cat-defs">
+      ${["A","B","C"].map(c => `<div><span class="tile" aria-hidden="true">${c}</span><div><h3>${c}. ${CATEGORY[c].name}</h3><p>${CATEGORY[c].text}</p></div></div>`).join("")}
+    </div>
+    <p class="prose">The categories are not a hierarchy, and one case can carry several. They are defined by what the official act did, not by what the local procedure is called.</p>
+
+    <h3>Worked examples</h3>
+    <div class="table-scroll" style="margin-top:.8rem">
+      <table>
+        <thead><tr><th scope="col">Situation</th><th scope="col">Included?</th><th scope="col">Category</th><th scope="col">Why</th></tr></thead>
+        <tbody>
+          <tr><td>Final conviction, later retrial acquittal</td><td>Yes</td><td>A</td><td>A court removed the finding of guilt through a post-conviction process.</td></tr>
+          <tr><td>Compensation decision expressly recognizing a wrongful conviction, with no retrial acquittal yet</td><td>Yes, if documentation is sufficient</td><td>B</td><td>A competent authority formally acknowledged the error.</td></tr>
+          <tr><td>Pardon granted on humanitarian grounds only</td><td>No</td><td>None</td><td>Relief alone is not enough unless the documents tie it to doubts about the conviction.</td></tr>
+          <tr><td>Acquittal on ordinary appeal before the conviction became final</td><td>No</td><td>None</td><td>The error was corrected before a final conviction existed.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="prose" aria-labelledby="m5">
+    <h2 id="m5">What is excluded</h2>
+    <ul>
+      <li>Cases still in progress, including pending appeals, retrial applications and reviews.</li>
+      <li>Cases with no official action after conviction, including those where new evidence exists but has not been acted on, or where innocence claims come only from families, media, NGOs or legal teams.</li>
+      <li>Claims based only on campaigns, media reports or advocacy.</li>
+      <li>Cases where new evidence was submitted and rejected, with no official action following.</li>
+      <li>Discretionary leniency without any acknowledgment of error.</li>
+      <li>Non-criminal matters, such as civil disputes, administrative sanctions and regulatory or immigration matters.</li>
+      <li>Cases without enough documentation to verify the official action.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="m6">
+    <h2 id="m6">Keeping legal differences visible</h2>
+    <p class="prose">Post-conviction remedies do not map neatly across Asian jurisdictions. ARWC records each case within a shared structure while keeping the local route and terminology.</p>
+    <div class="table-scroll" style="margin-top:.8rem">
+      <table>
+        <thead><tr><th scope="col">What is recorded</th><th scope="col">Standardized across cases</th><th scope="col">Kept as local detail</th></tr></thead>
+        <tbody>
+          <tr><td>Official action</td><td>Category A, B or C</td><td>Local procedural route and issuing authority</td></tr>
+          <tr><td>Offense</td><td>Broad offense type</td><td>Offense name in the original language</td></tr>
+          <tr><td>Procedure</td><td>Finality confirmation and correction stage</td><td>The jurisdiction's own legal mechanism</td></tr>
+          <tr><td>Evidence and factors</td><td>Standard coding plus a narrative</td><td>How each factor operated locally</td></tr>
+          <tr><td>Sources</td><td>Source type and date</td><td>Original citation and document title</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Examples of local post-conviction routes</h3>
+    <div class="table-scroll" style="margin-top:.8rem">
+      <table>
+        <thead><tr><th scope="col">Jurisdiction</th><th scope="col">Local route</th><th scope="col">Who may initiate</th></tr></thead>
+        <tbody>
+          <tr><td>China</td><td>Trial supervision procedure (retrial)</td><td>A party or close relative by petition, a court, or the procuratorate</td></tr>
+          <tr><td>Indonesia</td><td><em>Peninjauan Kembali</em>, Supreme Court review of a final judgment</td><td>The convicted person or their heirs</td></tr>
+          <tr><td>Japan</td><td>Retrial of a final and binding judgment of guilt</td><td>The convicted person, a public prosecutor, a legal representative, or certain relatives</td></tr>
+          <tr><td>Taiwan</td><td>Motion for retrial; extraordinary appeal</td><td>Retrial: the convicted person, a prosecutor, or certain relatives. Extraordinary appeal: through the Prosecutor-General</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">Illustrative, not exhaustive. Each case is coded by what the official act accomplished, whatever the route is called.</p>
+  </section>
+
+  <section aria-labelledby="m7">
+    <h2 id="m7">How sources are weighed</h2>
+    <p class="prose">From strongest to weakest:</p>
+    <ol class="steps">
+      <li><div>Court judgments</div></li>
+      <li><div>Compensation decisions</div></li>
+      <li><div>Prosecutorial documents</div></li>
+      <li><div>Administrative documents</div></li>
+      <li><div>Official gazettes</div></li>
+      <li><div>Academic publications</div></li>
+      <li><div>Media reports, as supporting context only. A media report is never the sole basis for inclusion.</div></li>
+    </ol>
+    <p class="prose">Social media and unverified secondary material are not used.</p>
+  </section>
+
+  <section aria-labelledby="m8">
+    <h2 id="m8">From submission to published record</h2>
+    <ol class="steps">
+      <li><div>The coordinating team checks that the conviction was final under local law.</div></li>
+      <li><div>The team checks that the official action fits category A, B or C and is supported by the documents.</div></li>
+      <li><div>If the case passes, it receives an ID and the contributor completes the core fields.</div></li>
+      <li><div>The coordinating team writes the structured English summary and codes the standard fields.</div></li>
+      <li><div>The contributor, or another qualified reviewer for that jurisdiction, confirms that the summary matches the original-language materials.</div></li>
+      <li><div>The team decides on publication. The record is released with its category and sources visible.</div></li>
+    </ol>
+    <p class="prose">Ambiguous cases, especially about finality or about how several official acts relate to one another, are reviewed by at least two team members and logged in a coding memo.</p>
+  </section>
+
+  <section class="prose" aria-labelledby="m9">
+    <h2 id="m9">Reading the records responsibly</h2>
+    <p>Registry counts are not prevalence estimates. A jurisdiction with more documented cases may have more wrongful convictions, but it may equally have more transparent correction mechanisms, more accessible records, a stronger contributor network or more active post-conviction review. A jurisdiction with few records may simply have weaker documentation or fewer official routes to correction.</p>
+    <p>The registry captures only known, officially documented cases. Many miscarriages of justice remain unknown, and some arise through pathways the registry does not capture well, such as plea bargaining or pre-trial detention.</p>
+  </section>
+
+  <section aria-labelledby="m10">
+    <h2 id="m10">Documents</h2>
+    <ul class="dated">
+      <li><span class="d">Template</span><span>Case documentation template, published as a supplement to the <a href="https://doi.org/${SITE.paperDoi}">framework paper</a>.</span></li>
+      <li><span class="d">Codebook</span><span>Versioned codebook and template <span class="placeholder">DOI to be assigned at first release</span></span></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="m11">
+    <h2 id="m11">Common questions</h2>
+    <details><summary>Does inclusion mean the person is innocent?</summary><p>A record shows that an authority corrected or acknowledged the conviction. ARWC does not make its own finding on guilt or innocence. Each record states the official act and the reasons the authority gave.</p></details>
+    <details><summary>Why is my country not in the registry?</summary><p>No verifiable, officially corrected case from that jurisdiction has been captured under the criteria yet. That says nothing about whether wrongful convictions happen there. If you know of a qualifying case, please <a href="#/submit">submit it</a>.</p></details>
+    <details><summary>How are cases categorized?</summary><p>By the official act (A, B or C), and by coded fields that include jurisdiction, offense type, contributing factors and what prompted the correction.</p></details>
+    <details><summary>Can I download the data?</summary><p>Not yet. Researcher access, with guidance on appropriate use, is being developed. A versioned public release is planned once verification procedures are fully in place.</p></details>
+    <details><summary>Are there registries for individual countries?</summary><p>Some jurisdictions have their own initiatives. See <a href="#/about/related">related registries and initiatives</a>.</p></details>
+  </section>
+</div>`;
+}
+
+function pageFactors() {
+  const blocks = [
+    ["False confessions", "Innocent people can confess because of situational pressure or personal vulnerability. International research links false confessions to guilt-presumptive and prolonged questioning, repeated accusations, deception about evidence, and the exploitation of youth, cognitive impairment or mental health problems (Kassin et al., 2010, 2025). In Asia, false confessions recur in documented cases across several jurisdictions (Le et al., 2024). Studies describe confession-oriented interrogation in China (He, 2016; Zhong & Dai, 2019), conditions such as prolonged pre-trial detention and limited early access to counsel in Japan (Johnson, 2020), and coerced confessions in earlier capital cases in Taiwan (Chin & Lin, 2023)."],
+    ["Eyewitness misidentification", "Memory is reconstructive. Identifications are vulnerable to stress, brief exposure, poor lighting and the way identification evidence is collected (Wells et al., 2020). A systematic review of Asian cases lists misidentification and false witness testimony among recurring factors (Le et al., 2024). Researchers have raised concerns about contradictory identification evidence being relied on in China (Zhong & Dai, 2019), about identification procedures in Singapore (Chen & Chua, 2010), and about knowledge of eyewitness memory among Indonesian practitioners (Sumampouw et al., 2022)."],
+    ["Forensic and evidentiary errors", "Forensic evidence can mislead when it is poorly collected, overstated in court or interpreted under contextual bias (Dror et al., 2006; Garrett & Neufeld, 2009). Even DNA results can be misread in complex analyses. Studies of Chinese cases identify forensic identification errors and over-reliance on expert testimony (He, 2016), and one Taiwanese exoneration showed how a mixed Y-STR DNA profile was first presented as strong evidence of guilt (Hampikian et al., 2017)."],
+    ["Investigative and prosecutorial misconduct", "Wrongful convictions can follow when investigators or prosecutors suppress exculpatory evidence, pressure witnesses, present misleading evidence or pursue a suspect with tunnel vision. Research links such practices to case-closure targets in China (Zhong & Dai, 2019), to problems in handling physical evidence in Taiwan (Chin & Lin, 2023), and to weak protection of suspects' rights in Indonesia (PBHI, 2014). These practices are usually discussed as effects of institutional incentives rather than isolated wrongdoing."],
+    ["Limited or inadequate defense", "Without effective representation, defendants have fewer chances to review evidence, consult experts or challenge how a case was investigated (West, 2010; Gould et al., 2014). Research from Singapore links poverty and limited access to counsel to wrongful conviction risk (Wong, 2010), and exonerees in Vietnam have described minimal access to lawyers before trial (Le et al., 2024)."],
+    ["Other factors", "Perjury and informant testimony also contribute (Le et al., 2024). Beyond procedure, public pressure for quick results, political priorities and campaigns against crime or corruption can narrow the space for careful evaluation of evidence (Li, 2014; McCoy, 2014), and institutional norms around low acquittal rates can make courts reluctant to find that an investigation failed (Johnson, 2020)."]
+  ];
+  const refs = [
+    "Chen, S., & Chua, E. (2010). Wrongful convictions in Singapore: A general survey of risk factors. Singapore Law Review, 28, 98–122.",
+    "Chin, M. H., & Lin, T. W. (2023). Miscarriages of justice in Taiwan. In C. R. Solberg & R. A. Leo (Eds.), Murder, wrongful conviction and the law (pp. 1–16). Routledge.",
+    "Dror, I. E., Charlton, D., & Péron, A. E. (2006). Contextual information renders experts vulnerable to making erroneous identifications. Forensic Science International, 156(1), 74–78.",
+    "Garrett, B. L., & Neufeld, P. J. (2009). Invalid forensic science testimony and wrongful convictions. Virginia Law Review, 95(1), 1–97.",
+    "Gould, J. B., Carrano, J., Leo, R. A., & Wooldredge, J. (2014). Predicting erroneous convictions: A social science approach to miscarriages of justice. National Institute of Justice.",
+    "Hampikian, G., Peri, G., Lo, S. S., Chin, M. H., & Liu, K. L. (2017). Case report: Coincidental inclusion in a 17-locus Y-STR mixture, wrongful conviction and exoneration. Forensic Science International: Genetics, 31, 1–4.",
+    "He, J. (2016). Miscarriage of justice and malpractice in criminal investigations in China. China Review, 16, 65–94.",
+    "Johnson, D. T. (2020). Wrongful convictions and the culture of denial. In The culture of capital punishment in Japan (pp. 61–80). Palgrave Macmillan.",
+    "Kassin, S. M., Cleary, H. M. D., Gudjonsson, G. H., Leo, R. A., Meissner, C. A., Redlich, A. D., & Scherr, K. C. (2025). Police-induced confessions, 2.0: Risk factors and recommendations. Law and Human Behavior, 49(1), 7–53.",
+    "Kassin, S. M., Drizin, S. A., Grisso, T., Gudjonsson, G. H., Leo, R. A., & Redlich, A. D. (2010). Police-induced confessions: Risk factors and recommendations. Law and Human Behavior, 34(1), 3–38.",
+    "Le, L. C., Hoang, Y. H., Bui, H. T., Nguyen, D. Q., Mai, S. T., & Luong, H. T. (2024). Wrongful convictions in Asian countries: A systematic literature review. International Journal of Comparative and Applied Criminal Justice, 48(4), 345–361.",
+    "Li, Y. (2014). High conviction rates and the question of due process in China. Journal of Contemporary China, 23(85), 681–695.",
+    "McCoy, T. (2014, March 14). Chinese courts convict more than 99.9 per cent of defendants. The Telegraph.",
+    "PBHI. (2014). Pelanggaran hak tersangka 2013 [Violations of suspects' rights].",
+    "Sumampouw, N., Bjorndal, L., Magnussen, S., Otgaar, H., & Brennen, T. (2022). Knowledge about eyewitness testimony: A survey of Indonesian police officers and psychologists. Psychology, Crime & Law, 28(8), 1–16.",
+    "Wells, G. L., Kovera, M. B., Douglass, A. B., Brewer, N., Meissner, C. A., & Wixted, J. T. (2020). Policy and procedure recommendations for the collection and preservation of eyewitness identification evidence. Law and Human Behavior, 44(1), 3–36.",
+    "West, E. M. (2010). Court findings of ineffective assistance of counsel claims in post-conviction appeals among the first 255 DNA exoneration cases. Innocence Project.",
+    "Wong, A. W. S. M. (2010). Criminal justice for all? Wrongful convictions and poverty in Singapore. Singapore Law Review, 28, 67–97.",
+    "Zhong, L., & Dai, M. (2019). The politics of wrongful convictions in China. Journal of Contemporary China, 28(116), 260–276."
+  ];
+  return `<div class="wrap">
+  <div class="page-head">
+    <h1>Contributing factors</h1>
+    <p class="lead">Research on known miscarriages of justice keeps returning to a small set of factors, and the smaller body of work from Asia points to similar risks. These summaries describe factors found in documented cases, not the full, unseen range of wrongful convictions.</p>
+  </div>
+  ${blocks.map(([h, p], i) => `<section class="prose" aria-labelledby="f${i}"><h2 id="f${i}">${h}</h2><p>${esc(p)}</p></section>`).join("")}
+  <section aria-labelledby="fcode">
+    <h2 id="fcode">How factors are coded in records</h2>
+    <p class="prose">Contributors can select several factors for a case, and each selection is explained in the record. The registry uses these codes:</p>
+    <ul class="tags">${FACTORS.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
+  </section>
+  <section aria-labelledby="fref">
+    <h2 id="fref">References</h2>
+    <ul class="refs">${refs.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+  </section>
+</div>`;
+}
+
+function pageSubmit() {
+  return `<div class="wrap">
+  <div class="page-head">
+    <h1>Submit a case</h1>
+    <p class="lead">ARWC welcomes cases from researchers, legal practitioners, journalists, innocence organizations and civil society groups. Every submission is checked before anything is published.</p>
+  </div>
+  <section aria-labelledby="s1">
+    <h2 id="s1">Check that the case qualifies</h2>
+    <ol class="steps">
+      <li><div>The criminal conviction became final under local law.</div></li>
+      <li><div>A court or another public authority later took an official action of type A, B or C.</div></li>
+      <li><div>At least one traceable official document supports that action.</div></li>
+    </ol>
+    <p class="prose">Details are on the <a href="#/method">methodology page</a>.</p>
+  </section>
+  <section class="prose" aria-labelledby="s2">
+    <h2 id="s2">What to send</h2>
+    <ul>
+      <li><strong>Jurisdiction:</strong> country or region, legal system family, type of procedural system, and the institutions involved.</li>
+      <li><strong>The case:</strong> the person's name or an anonymized identifier, gender, age, the year of the original conviction, the year of the official action, and the offense as listed in the conviction documents.</li>
+      <li><strong>Finality:</strong> confirmation that the conviction had become final, and how.</li>
+      <li><strong>The official action:</strong> its category (A, B or C), the type of document, its date and the issuing authority.</li>
+      <li><strong>A short summary:</strong> how the conviction came about, what contributed to it, and how the error was identified and corrected.</li>
+      <li><strong>If known:</strong> contributing factors and what prompted the official action.</li>
+      <li><strong>Sources:</strong> copies or full citations of the official documents.</li>
+    </ul>
+    <p>You do not need to send full case files or sensitive personal data.</p>
+  </section>
+  <section class="prose" aria-labelledby="s3">
+    <h2 id="s3">What happens next</h2>
+    <p>The coordinating team checks finality and the official action, then works with you on the record. A reviewer who reads the original language confirms the English summary before publication. Contributors are credited by role on each record; individual identities are held internally.</p>
+  </section>
+  <section class="prose" aria-labelledby="s4">
+    <h2 id="s4">Send a case</h2>
+    <p>Email the coordinating team at ${contactLink()}. A structured submission form is planned.</p>
+  </section>
+</div>`;
+}
+
+function pageAbout() {
+  const doi = `https://doi.org/${SITE.paperDoi}`;
+  return `<div class="wrap">
+  <div class="page-head">
+    <h1>About ARWC</h1>
+    <p class="lead">The Asian Registry of Wrongful Convictions is an independent academic initiative. It documents officially corrected wrongful convictions across Asian jurisdictions so that researchers, legal practitioners, journalists and policymakers can see how miscarriages of justice happen and how different legal systems recognize and correct them.</p>
+  </div>
+
+  <section class="prose" aria-labelledby="a1">
+    <h2 id="a1">How the registry is organized</h2>
+    <p>A coordinating team sets registry-wide standards and makes publication decisions. Regional co-developers identify cases and verify local-language materials, so that interpretive authority does not sit with a single institution that lacks local expertise.</p>
+  </section>
+
+  <section class="prose" aria-labelledby="a2">
+    <h2 id="a2">Team</h2>
+    <p class="team">ARWC is led by Yiwen (Ophelia) Zhang, Maastricht University.</p>
+    <p>The registry framework was developed by Yiwen (Ophelia) Zhang, Henry Otgaar, Yikang Zhang, Nael Sumampouw, Tsania Isa, Jianqing Wang, Yoshiyuki Nishi and Yun-Ching Ko.</p>
+    <p class="muted">Roles and affiliations of the coordinating team and regional co-developers will be listed here once confirmed.</p>
+  </section>
+
+  <section class="prose" aria-labelledby="a3">
+    <h2 id="a3">Funding</h2>
+    <p>Registry development is supported by the University Fund Limburg (CoBes). Teaching materials that draw on the registry are supported by the Maastricht University Library OpenUP programme.</p>
+  </section>
+
+  <section aria-labelledby="a4">
+    <h2 id="a4">News and publications</h2>
+    <ul class="dated">
+      <li><span class="d num">Sep 2026</span><span>Oral presentation at the European Association of Psychology and Law conference: <em>Enabling cross-jurisdictional research on wrongful convictions in Asia: A registry framework</em>.</span></li>
+      <li><span class="d num">2026</span><span>Zhang, Y., Otgaar, H., Zhang, Y., Sumampouw, N., Isa, T., Wang, J., Nishi, Y., & Ko, Y.-C. Towards an Asian Registry of Wrongful Convictions. <em>Forensic Science International: Synergy</em>. <a href="${doi}">${doi}</a></span></li>
+    </ul>
+    <p class="prose muted small">Analytical reports based on registry data will be listed here as they are published.</p>
+  </section>
+
+  <section aria-labelledby="related">
+    <h2 id="related">Related registries and initiatives</h2>
+    <div class="prose">
+      <ul>
+        <li><a href="https://www.exonerationregistry.org/" rel="noopener">National Registry of Exonerations</a> (United States)</li>
+        <li><a href="https://www.registryofexonerations.eu/" rel="noopener">European Registry of Exonerations</a></li>
+        <li><a href="https://www.wrongfulconvictions.ca/" rel="noopener">Canadian Registry of Wrongful Convictions</a></li>
+        <li><a href="https://twinnocenceproject.org/" rel="noopener">Taiwan Innocence Project</a></li>
+        <li><a href="https://innocenceprojectjapan.org/en/home-2" rel="noopener">Innocence Project Japan</a></li>
+        <li><a href="https://usali.org/china-wrongful-convictions-case-archive" rel="noopener">China Wrongful Convictions Case Archive</a>, U.S.-Asia Law Institute, New York University</li>
+      </ul>
+      <p class="muted small">Listing an initiative does not imply a formal partnership.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="cite">
+    <h2 id="cite">How to cite</h2>
+    <h3>The registry</h3>
+    <p class="cite">Asian Registry of Wrongful Convictions. (2026). <em>ARWC registry</em> (${esc(SITE.releaseLabel)}) [Data set]. <span class="placeholder">version DOI to be assigned</span></p>
+    <h3>The framework</h3>
+    <p class="cite">Zhang, Y., Otgaar, H., Zhang, Y., Sumampouw, N., Isa, T., Wang, J., Nishi, Y., & Ko, Y.-C. (2026). Towards an Asian Registry of Wrongful Convictions. <em>Forensic Science International: Synergy</em>. ${doi}</p>
+  </section>
+
+  <section class="prose" aria-labelledby="a6">
+    <h2 id="a6">Contact</h2>
+    <p>Researchers, legal professionals, journalists and students are welcome to get in touch at ${contactLink()}.</p>
+  </section>
+</div>`;
+}
+
+function pagePolicies() {
+  const draft = SITE.preview ? `<span class="draft-tag">Draft</span>` : "";
+  return `<div class="wrap">
+  <div class="page-head">
+    <h1>Policies</h1>
+    <p class="lead">How ARWC handles records, names, corrections and data.</p>
+  </div>
+  <section class="prose" aria-labelledby="p1">
+    <h2 id="p1">Purpose${draft}</h2>
+    <p>ARWC documents officially corrected wrongful convictions to support research, teaching and informed policy discussion about criminal justice in Asia. Records are published for research and educational purposes.</p>
+  </section>
+  <section class="prose" aria-labelledby="p2">
+    <h2 id="p2">Disclaimer${draft}</h2>
+    <p>ARWC is an independent academic initiative. Including a case does not imply a judgment about the legal system of any jurisdiction. ARWC does not litigate, investigate or advocate in individual cases, and it does not assess guilt or innocence. Records report official acts and the reasons given for them.</p>
+  </section>
+  <section class="prose" aria-labelledby="p3">
+    <h2 id="p3">Names and personal information${draft}</h2>
+    <p>Records use names as they appear in official public documents, or an anonymized identifier where required. Victims are not named. ARWC does not publish personal information beyond what official public sources contain.</p>
+  </section>
+  <section class="prose" aria-labelledby="p4">
+    <h2 id="p4">Corrections and challenges${draft}</h2>
+    <p>If you believe a record contains an error, or that a case does not meet the inclusion criteria, contact ${contactLink()} and include the source that supports your view. Each request is reviewed, and any resulting change is noted in the record's version history.</p>
+  </section>
+  <section class="prose" aria-labelledby="p5">
+    <h2 id="p5">Data access${draft}</h2>
+    <p>Records can be read on this site. Researcher access to the structured dataset, with guidance on appropriate use, is being developed. A versioned release with a persistent identifier is planned.</p>
+  </section>
+  <section class="prose" aria-labelledby="p6">
+    <h2 id="p6">Licence and terms of use</h2>
+    <p><span class="placeholder">To be confirmed before launch.</span></p>
+  </section>
+  <section aria-labelledby="p7">
+    <h2 id="p7">Version history</h2>
+    <ul class="dated">
+      <li><span class="d num">Sep 2026</span><span>${esc(SITE.releaseLabel)}: methodology, contributing factors and ${plural(RECORDS.length, "verified record", "verified records")}.</span></li>
+    </ul>
+  </section>
+</div>`;
+}
+
+function pageNotFound(msg) {
+  return `<div class="wrap"><div class="page-head">
+    <h1>Page not found</h1>
+    <p class="lead">${msg || "This address does not match a page on the site."} Go to the <a href="#/registry">registry</a> or the <a href="#/">home page</a>.</p>
+  </div></div>`;
+}
+
+/* ==========================================================================
+   Router
+   ========================================================================== */
+const TITLES = { "": "Home", registry: "Registry", method: "Methodology", factors: "Contributing factors", submit: "Submit a case", about: "About", policies: "Policies" };
+
+function route() {
+  const parts = (location.hash.replace(/^#\/?/, "") || "").split("/").filter(Boolean);
+  const [page = "", arg] = parts;
+  const main = document.getElementById("main");
+  let html, title, after;
+  switch (page) {
+    case "": html = pageHome(); title = ""; break;
+    case "registry": html = pageRegistry(); title = TITLES.registry; after = initRegistry; break;
+    case "record": {
+      const r = RECORDS.find(x => x.id === arg);
+      html = pageRecord(arg); title = r ? `${r.name} (${r.id})` : "Record not found"; break;
+    }
+    case "method": html = pageMethod(); title = TITLES.method; break;
+    case "factors": html = pageFactors(); title = TITLES.factors; break;
+    case "submit": html = pageSubmit(); title = TITLES.submit; break;
+    case "about": html = pageAbout(); title = TITLES.about; break;
+    case "policies": html = pagePolicies(); title = TITLES.policies; break;
+    default: html = pageNotFound(); title = "Page not found";
+  }
+  main.innerHTML = html;
+  if (after) after();
+  document.title = title ? `${title} | Asian Registry of Wrongful Convictions` : "Asian Registry of Wrongful Convictions (ARWC)";
+
+  const navKey = page === "record" ? "registry" : page;
+  document.querySelectorAll("[data-nav]").forEach(a => {
+    if (a.dataset.nav === navKey) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+  });
+  const nav = document.getElementById("siteNav");
+  nav.classList.remove("open");
+  document.getElementById("menuBtn").setAttribute("aria-expanded", "false");
+
+  const anchor = page === "about" && arg ? document.getElementById(arg) : null;
+  if (anchor) { anchor.scrollIntoView(); }
+  else {
+    window.scrollTo(0, 0);
+    if (initialised) main.focus({ preventScroll: true });
+  }
+  initialised = true;
+}
+let initialised = false;
+
+document.getElementById("menuBtn").addEventListener("click", e => {
+  const nav = document.getElementById("siteNav");
+  const open = nav.classList.toggle("open");
+  e.currentTarget.setAttribute("aria-expanded", String(open));
+});
+document.getElementById("previewBar").hidden = !SITE.preview;
+document.getElementById("footerRelease").textContent = `${SITE.releaseLabel}. Last updated ${SITE.updated}.`;
+window.addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>
