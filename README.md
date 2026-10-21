@@ -23,5 +23,7 @@ repository. After editing the workbook, run
     python3 tools/build_inventory_html.py ARWC_Case_Inventory.xlsx --site index.html
 
 and commit `index.html`. Registry records are left out, as are the internal columns (preliminary
-category, finality guess, internal notes). To publish an empty list, put a workbook with no
-candidate rows through the same command.
+category, finality guess, internal notes, screening codes). Screened-out rows show a standard
+public reason taken from their exclusion code in column U (X-01 to X-05), not the internal note.
+Where a row has an official document (columns Q-S), its link is shown as the source. To publish an
+empty list, put a workbook with no candidate rows through the same command.

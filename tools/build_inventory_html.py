@@ -18,7 +18,17 @@ from datetime import date
 from openpyxl import load_workbook
 
 KEYS = ["inv", "arwc", "status", "person", "local", "jur", "place", "offense", "final", "corr",
-        "outcome", "cat", "finality", "lead", "url", "notes"]
+        "outcome", "cat", "finality", "lead", "url", "notes",
+        "doc", "docurl", "doctype", "verified", "code"]
+
+
+def read_issues(path):
+    """Screening codes (I-01..., X-01...) and their short labels from the 'Screening issues' sheet."""
+    wb = load_workbook(path, read_only=True)
+    if "Screening issues" not in wb.sheetnames:
+        return {}
+    return {str(c).strip(): {"type": t or "", "label": l or ""}
+            for c, t, l, *_ in wb["Screening issues"].iter_rows(min_row=2, values_only=True) if c}
 
 
 def read_rows(path):
@@ -30,6 +40,7 @@ def read_rows(path):
         row = {k: ("" if v is None else v) for k, v in zip(KEYS, values)}
         for k in ("final", "corr"):  # years stay numbers, or blank
             row[k] = int(row[k]) if str(row[k]).isdigit() else ""
+        row["codes"] = re.findall(r"\b[IX]-\d\d\b", str(row["code"]))
         rows.append(row)
     return rows
 
@@ -93,7 +104,7 @@ h1{font-size:clamp(1.9rem,2.5vw + 1rem,2.6rem);font-weight:500;letter-spacing:-.
 .tile[aria-pressed="true"]{border-color:var(--indigo);box-shadow:inset 0 0 0 1px var(--indigo)}
 .tile .n{display:block;font-size:1.6rem;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.1}
 .tile .l{display:block;font-size:.82rem;color:var(--ink-2);margin-top:.2rem}
-.controls{display:grid;grid-template-columns:2fr repeat(3,1fr);gap:.7rem;align-items:end;margin:1.6rem 0 .8rem}
+.controls{display:grid;grid-template-columns:2fr repeat(4,1fr);gap:.7rem;align-items:end;margin:1.6rem 0 .8rem}
 .field label{display:block;font-size:.82rem;color:var(--ink-2);margin-bottom:.25rem}
 .field input,.field select{width:100%;font:inherit;font-size:.93rem;color:var(--ink);background:var(--surface);border:1px solid var(--rule-strong);border-radius:6px;padding:.5rem .6rem;min-height:2.5rem}
 @media (max-width:820px){.controls{grid-template-columns:1fr 1fr}.controls .search{grid-column:1/-1}}
@@ -120,6 +131,9 @@ td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
 .fin{font-size:.8rem;white-space:nowrap}
 .fin.Likely,.fin.Pass{color:var(--indigo-strong)}
 .fin.Doubtful,.fin.Fail{color:var(--ink-2);text-decoration:underline dotted}
+.code{display:inline-block;margin:.25rem .25rem 0 0;font-size:.72rem;font-weight:600;padding:.02rem .4rem;border-radius:4px;background:var(--amber-wash);color:var(--ink);border:1px solid var(--gardenia);white-space:nowrap}
+.code.X{background:transparent;border-color:var(--rule-strong);color:var(--ink-2)}
+.dtype{display:inline-block;font-size:.72rem;color:var(--ink-2);margin-left:.3rem}
 .empty{padding:2rem 1rem}
 footer{border-top:1px solid var(--rule);padding:1.8rem 0 2.4rem;font-size:.85rem;color:var(--ink-2)}
 @media (max-width:760px){
@@ -132,7 +146,7 @@ footer{border-top:1px solid var(--rule);padding:1.8rem 0 2.4rem;font-size:.85rem
 </style>
 </head>
 <body>
-<div class="bar"><div class="wrap"><strong>Internal working list.</strong> Candidate rows are leads drawn from existing archives and public reporting. They have not been screened against the ARWC criteria and are not registry records.</div></div>
+<div class="bar"><div class="wrap"><strong>Internal working list.</strong> Candidate rows are leads drawn from existing archives, official sites and public reporting; they are not registry records. Screened-out rows stay on the list with their reason so nobody screens them twice.</div></div>
 <header class="top"><div class="wrap"><a class="brand" href="index.html">ARWC<span>Asian Registry of Wrongful Convictions</span></a><a href="index.html#/registry">Published registry</a></div></header>
 <main><div class="wrap">
   <h1>Case inventory</h1>
@@ -146,6 +160,7 @@ footer{border-top:1px solid var(--rule);padding:1.8rem 0 2.4rem;font-size:.85rem
     <div class="field"><label for="fJur">Jurisdiction</label><select id="fJur"></select></div>
     <div class="field"><label for="fFin">Finality check</label><select id="fFin"></select></div>
     <div class="field"><label for="fLead">Lead source</label><select id="fLead"></select></div>
+    <div class="field"><label for="fCode">Screening code</label><select id="fCode"></select></div>
   </div>
   <div class="result"><span id="count" aria-live="polite"></span><button type="button" class="linklike" id="clear">Clear filters</button></div>
   <div class="scroll">
@@ -161,15 +176,17 @@ footer{border-top:1px solid var(--rule);padding:1.8rem 0 2.4rem;font-size:.85rem
         <th scope="col">Correction, as reported</th>
         <th scope="col" data-k="finality"><button type="button">Finality</button></th>
         <th scope="col">Lead source</th>
+        <th scope="col">Official document</th>
         <th scope="col">Notes</th>
       </tr></thead>
       <tbody id="rows"></tbody>
     </table>
   </div>
 </div></main>
-<footer><div class="wrap">Generated __DATE__ from data/ARWC_Case_Inventory.xlsx by tools/build_inventory_html.py. Edit the workbook, then rerun the script. Years and outcomes are as reported by the lead source and have not been checked against judgments.</div></footer>
+<footer><div class="wrap">Generated __DATE__ from data/ARWC_Case_Inventory.xlsx by tools/build_inventory_html.py. Edit the workbook, then rerun the script. Years and outcomes are as reported by the lead source; the official-document column says what has been checked.</div></footer>
 <script>
 const ROWS = __DATA__;
+const ISSUES = __ISSUES__;
 const STATUS_ORDER = ["Verified record","Provisional record","Pending","Candidate - screened in","Candidate - not screened","Candidate - screened out","Set aside in pilot","Excluded (worked example)"];
 const PILL = { "Verified record":"v", "Provisional record":"p", "Pending":"pend", "Set aside in pilot":"x", "Excluded (worked example)":"x", "Candidate - screened out":"x" };
 const SHORT = { "Candidate - not screened":"Candidate", "Excluded (worked example)":"Excluded", "Set aside in pilot":"Set aside" };
@@ -179,6 +196,9 @@ const $ = id => document.getElementById(id);
 const uniq = k => [...new Set(ROWS.map(r => r[k]).filter(Boolean))].sort();
 const opts = (el, vals) => el.innerHTML = `<option value="">All</option>` + vals.map(v => `<option>${esc(v)}</option>`).join("");
 opts($("fJur"), uniq("jur")); opts($("fFin"), uniq("finality")); opts($("fLead"), uniq("lead"));
+const codesUsed = [...new Set(ROWS.flatMap(r => r.codes))].sort();
+$("fCode").innerHTML = `<option value="">All</option><option value="*">Any open question (I-)</option>` + codesUsed.map(c => `<option value="${c}">${esc(c)} ${esc(ISSUES[c]?.label || "")}</option>`).join("");
+const codeTag = c => `<span class="code ${c[0]}" title="${esc((ISSUES[c]?.type || "") + ": " + (ISSUES[c]?.label || ""))}">${esc(c)} ${esc(ISSUES[c]?.label || "")}</span>`;
 let status = "", sortKey = "status", sortDir = 1;
 
 const statuses = STATUS_ORDER.filter(s => ROWS.some(r => r.status === s)).concat(uniq("status").filter(s => !STATUS_ORDER.includes(s)));
@@ -202,16 +222,17 @@ function render() {
     && (!$("fJur").value || r.jur === $("fJur").value)
     && (!$("fFin").value || r.finality === $("fFin").value)
     && (!$("fLead").value || r.lead === $("fLead").value)
+    && (!$("fCode").value || ($("fCode").value === "*" ? r.codes.some(c => c[0] === "I") : r.codes.includes($("fCode").value)))
     && (!q || Object.values(r).join(" ").toLowerCase().includes(q))).sort(cmp);
   $("count").textContent = `Showing ${list.length} of ${ROWS.length} cases`;
-  $("clear").hidden = !(status || q || $("fJur").value || $("fFin").value || $("fLead").value);
+  $("clear").hidden = !(status || q || $("fJur").value || $("fFin").value || $("fLead").value || $("fCode").value);
   document.querySelectorAll("thead th[data-k]").forEach(th => th.setAttribute("aria-sort", th.dataset.k === sortKey ? (sortDir > 0 ? "ascending" : "descending") : "none"));
   $("rows").innerHTML = list.length ? list.map(r => {
     const name = r.arwc && /^ARWC-/.test(r.arwc) && r.status !== "Pending" ? `<a href="index.html#/record/${esc(r.arwc)}">${esc(r.person)}</a>` : esc(r.person);
     const src = r.url ? `<a href="${esc(r.url)}" rel="noopener">${esc(r.lead)}</a>` : esc(r.lead);
     const loc = r.local ? `<span class="local" lang="${LANG[r.jur] || "en"}"${["Israel","Pakistan"].includes(r.jur) ? ' dir="rtl"' : ""}>${esc(r.local)}</span>` : "";
     return `<tr>
-      <td data-label="Status"><span class="pill ${PILL[r.status] || ""}">${esc(SHORT[r.status] || r.status)}</span>${r.arwc ? `<span class="local num">${esc(r.arwc)}</span>` : ""}</td>
+      <td data-label="Status"><span class="pill ${PILL[r.status] || ""}">${esc(SHORT[r.status] || r.status)}</span><span class="local num">${esc(r.arwc || r.inv)}</span>${r.codes.map(codeTag).join("")}</td>
       <td data-label="Person(s)"><span class="who">${name}</span>${loc}</td>
       <td data-label="Jurisdiction">${esc(r.jur)}${r.place ? `<span class="local">${esc(r.place)}</span>` : ""}</td>
       <td data-label="Offense">${esc(r.offense)}</td>
@@ -220,12 +241,13 @@ function render() {
       <td data-label="Correction">${esc(r.outcome)}${r.cat ? ` <span class="muted">(${esc(r.cat)})</span>` : ""}</td>
       <td data-label="Finality"><span class="fin ${esc(String(r.finality).split(" ")[0])}">${esc(r.finality)}</span></td>
       <td data-label="Lead source">${src}</td>
+      <td data-label="Official document">${r.doc ? (r.docurl ? `<a href="${esc(r.docurl)}" rel="noopener">${esc(r.doc)}</a>` : esc(r.doc)) : ""}${r.doctype ? `<span class="dtype">(${esc(r.doctype)})</span>` : ""}${r.verified ? `<span class="local">${esc(r.verified)}</span>` : ""}</td>
       <td data-label="Notes" class="muted">${esc(r.notes)}</td>
     </tr>`;
-  }).join("") : `<tr><td colspan="10" class="empty">No cases match these filters.</td></tr>`;
+  }).join("") : `<tr><td colspan="11" class="empty">No cases match these filters.</td></tr>`;
 }
-["q","fJur","fFin","fLead"].forEach(id => $(id).addEventListener("input", render));
-$("clear").addEventListener("click", () => { status = ""; ["q","fJur","fFin","fLead"].forEach(id => $(id).value = ""); render(); });
+["q","fJur","fFin","fLead","fCode"].forEach(id => $(id).addEventListener("input", render));
+$("clear").addEventListener("click", () => { status = ""; ["q","fJur","fFin","fLead","fCode"].forEach(id => $(id).value = ""); render(); });
 document.querySelectorAll("thead th[data-k] button").forEach(b => b.addEventListener("click", () => {
   const k = b.parentElement.dataset.k; sortDir = sortKey === k ? -sortDir : 1; sortKey = k; render();
 }));
@@ -259,20 +281,54 @@ def source_label(url):
     return host
 
 
+# Public reason for a screened-out row, by exclusion code. Internal notes are not published for these rows.
+PUBLIC_REASON = {
+    "X-01": "Not a final conviction: acquitted at first instance or the acquittal was upheld.",
+    "X-02": "Not a final conviction: overturned on appeal, after a remand, or the prosecution was withdrawn.",
+    "X-03": "No conviction: arrest, detention or prosecution only.",
+    "X-04": "The later decision did not reverse the conviction.",
+    "X-05": "No official correction yet. Will be reconsidered if a conviction is set aside.",
+}
+
+
+def public_name(name):
+    """Drop internal to-do remarks such as '(name to add)' from a displayed name."""
+    return re.sub(r"\s*\((?:first )?name[^)]*to (?:add|confirm)\)", "", str(name)).strip()
+
+
+def public_text(v):
+    """Drop internal to-do remarks from a displayed field; a field that is only a to-do becomes blank."""
+    v = re.sub(r"\s*\(?as recalled; to confirm\)?|;?\s*outcome to check", "", str(v)).strip(" ;")
+    return "" if re.fullmatch(r"(?i)(as reported \()?to (check|confirm)\)?", v) else v
+
+
+def public_source(r):
+    """Prefer an official document's link to the lead's link."""
+    if r.get("doctype") == "official" and r.get("docurl"):
+        return "Official document (" + source_label(r["docurl"]) + ")", r["docurl"]
+    return source_label(r["url"]), r["url"]
+
+
 def public_rows(rows):
     out = []
     for r in rows:
         label = PUBLIC_STATUS.get(r["status"])
         if not label:
             continue
-        outcome = re.sub(r"\s*\(?as recalled; to confirm\)?", "", str(r["outcome"])).strip(" ;")
+        reason = ""
+        if label == "Screened out":
+            reason = next((PUBLIC_REASON[c] for c in r["codes"] if c in PUBLIC_REASON), "")
+            if not reason and not r["codes"]:
+                reason = r["notes"]  # older rows whose notes were written for public display
+        elif label in ("Set aside", "Pending documentation"):
+            reason = r["notes"]
+        src, url = public_source(r)
         lang, direction = LANG.get(r["jur"], ("", ""))
         out.append({
-            "s": label, "person": r["person"], "local": r["local"], "lang": lang, "dir": direction,
-            "jur": r["jur"], "place": r["place"], "offense": "" if r["offense"] == "To check" else r["offense"],
-            "final": r["final"], "corr": r["corr"], "outcome": "" if outcome == "To check" else outcome,
-            "src": source_label(r["url"]), "url": r["url"],
-            "reason": r["notes"] if label in ("Set aside", "Screened out", "Pending documentation") else "",
+            "s": label, "person": public_name(r["person"]), "local": r["local"], "lang": lang, "dir": direction,
+            "jur": r["jur"], "place": public_text(r["place"]), "offense": public_text(r["offense"]),
+            "final": r["final"], "corr": r["corr"], "outcome": public_text(r["outcome"]),
+            "src": src, "url": url, "reason": reason,
         })
     return out
 
@@ -292,7 +348,8 @@ def update_site(src, index_path):
 def main(src, out):
     rows = read_rows(src)
     data = json.dumps(rows, ensure_ascii=False).replace("</", "<\\/")
-    html = PAGE.replace("__DATA__", data).replace("__DATE__", date.today().strftime("%d %B %Y").lstrip("0"))
+    issues = json.dumps(read_issues(src), ensure_ascii=False).replace("</", "<\\/")
+    html = PAGE.replace("__DATA__", data).replace("__ISSUES__", issues).replace("__DATE__", date.today().strftime("%d %B %Y").lstrip("0"))
     with open(out, "w", encoding="utf-8") as f:
         f.write(html)
     print(f"{out}: {len(rows)} cases")
