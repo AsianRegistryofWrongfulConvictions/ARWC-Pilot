@@ -287,7 +287,6 @@ PUBLIC_REASON = {
     "X-02": "Not a final conviction: overturned on appeal, after a remand, or the prosecution was withdrawn.",
     "X-03": "No conviction: arrest, detention or prosecution only.",
     "X-04": "The later decision did not reverse the conviction.",
-    "X-05": "No official correction yet. Will be reconsidered if a conviction is set aside.",
 }
 
 
@@ -313,7 +312,7 @@ def public_rows(rows):
     out = []
     for r in rows:
         label = PUBLIC_STATUS.get(r["status"])
-        if not label:
+        if not label or "X-05" in r["codes"]:  # convictions not (yet) corrected are not published
             continue
         reason = ""
         if label == "Screened out":
