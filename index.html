@@ -82,6 +82,7 @@ a:hover{color:var(--indigo-strong);text-decoration-thickness:2px}
 @media (max-width:620px){.news-list li{grid-template-columns:1fr}}
 .people{list-style:none;padding:0;margin:.8rem 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:.6rem}
 .people li{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:.7rem .9rem;font-weight:500}
+.yl-note{display:block;font-weight:400;font-size:.84rem;color:var(--ink-2);margin-top:.3rem;line-height:1.45}
 .people .cd-meta{display:block;font-weight:400;font-size:.88rem;color:var(--ink-2);margin-top:.15rem}
 .collab{display:grid;gap:1rem;margin:1rem 0 0;max-width:var(--measure)}
 .collab section{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:1rem 1.2rem}
@@ -509,6 +510,9 @@ const JURISDICTIONS = {
     family: "Civil law (continental), 大陆法系", procedure: "Inquisitorial with limited adversarial elements",
     finality: "Two-instance final-judgment system (两审终审制): a conviction takes legal effect when the second-instance judgment is issued, or when the appeal period expires without an appeal.",
     routes: "Retrial (再审) under the trial supervision procedure (审判监督程序), started by petition, by a court, or by a procuratorate protest. State compensation under the State Compensation Law (国家赔偿法), which has included an award for mental harm since its 2010 revision. Shelter-and-investigation (收容审查), an administrative detention, was abolished by the 1996 revision of the Criminal Procedure Law, in force from 1 January 1997." },
+  "JUR-IDN-01": { country: "Indonesia", lang: "id",
+    finality: "A judgment becomes final (berkekuatan hukum tetap) when the ordinary remedies of appeal (banding) and cassation (kasasi) are exhausted or lapse.",
+    routes: "Review (peninjauan kembali, PK) of a final conviction by the Supreme Court, first regulated by Supreme Court Regulation (PERMA) No. 1 of 1980 and then by the Code of Criminal Procedure (KUHAP, Law No. 8 of 1981, art. 263 onwards). Law No. 8 of 1981 was replaced from 2 January 2026 by Law No. 20 of 2025." },
   "JUR-JPN-01": { country: "Japan", lang: "ja",
     finality: "A judgment becomes final (確定) when the 14-day appeal period lapses without appeal or, after a Supreme Court judgment, when the period for a motion to correct it lapses or the motion is dismissed.",
     routes: "Retrial (再審) of a final conviction under the Code of Criminal Procedure, in two stages: a decision to commence retrial (再審開始決定), then the retrial itself. Amended by Act No. 67 of 2026: from 13 August 2026 a prosecutor may appeal a retrial-commencement decision only where there are sufficient grounds; a second stage, in force on a date set by cabinet order, lets courts order prosecutors to disclose evidence and excludes judges who took part in the original judgment. Criminal compensation (刑事補償) follows an acquittal, up to JPY 12,500 a day; state-liability claims (国家賠償) are separate civil proceedings." },
@@ -665,7 +669,7 @@ const TERMS = [
    ========================================================================== */
 const RECORDS = [
   {
-    id: "ARWC-CHN-0001",
+    id: "ARWC-CHN-001",
     status: "Verified record",
     updated: "16 September 2026",
     name: "Nie Shubin",
@@ -677,7 +681,8 @@ const RECORDS = [
     gender: "Male",
     ageAtConviction: "20",
     sentence: "Death (executed 27 April 1995)",
-    yearsLost: "0.6 (approximate)",
+    yearsLost: "0.6, in custody before execution",
+    yearsLostNote: "Counted from his arrest on 23 September 1994 to his execution on 27 April 1995 (217 days). Years lost measures time in custody; the execution is recorded separately.",
     convicted: 1995,
     finalDate: "25 April 1995",
     actions: [
@@ -766,6 +771,107 @@ const RECORDS = [
   },
 
   {
+    id: "ARWC-IDN-001",
+    status: "Provisional record",
+    review: "Coded to the codebook and source-checked on 1 October 2026; updated 22 October 2026. Pending documentation: the Supreme Court's review judgment has not yet been located, so it cannot be cited by number and date and the inclusion check is not complete. Awaiting confirmation by the co-developers for Indonesia.",
+    updated: "22 October 2026",
+    name: "Sengkon and Karta",
+    local: null,
+    caseName: "Kasus Sengkon dan Karta",
+    people: [
+      ["Sengkon bin Yakin", "48 at conviction (as stated in the 1977 judgment). Sentenced to 12 years."],
+      ["Karta alias Karung alias Encep bin Salam", "36 at conviction (as stated in the 1977 judgment). Sentenced to 7 years."]
+    ],
+    jur: "JUR-IDN-01", jurisdiction: "Indonesia", place: "Bekasi, West Java",
+    offense: "Robbery and murder",
+    offenseLocal: "Pasal 340 jo. 338 KUHP; alternatively Pasal 365 ayat (2)–(3) KUHP, as charged in the indictment",
+    offenseCats: ["Homicide", "Robbery"],
+    gender: "Male (both)",
+    ageAtConviction: "48 and 36 (as stated in the 1977 judgment)",
+    sentence: "Fixed term: Sengkon 12 years; Karta 7 years",
+    yearsLost: "5.9 for Sengkon; 3.3 for Karta (approximate)",
+    yearsLostNote: "Sengkon: from his detention on 11 December 1974 to his release on 4 November 1980. Karta: 9 to 28 December 1974, then from 26 July 1977 to 4 November 1980. The release date is that of the official release determination, as reported by two sources.",
+    convicted: 1978, finalApprox: true,
+    finalDate: "After 25 May 1978 (date to be confirmed)",
+    actions: [
+      { cat: "A", year: 1981, date: "1981 (as reported)", title: "Supreme Court review (peninjauan kembali)",
+        short: "The Supreme Court grants review and the two men are freed.",
+        body: "The Supreme Court granted their request for review (peninjauan kembali), the first under its Regulation No. 1 of 1980, and the two men were freed. They left prison on 3 November 1980 and an official release determination (penetapan) followed on 4 November 1980. The Supreme Court's news portal and The Jakarta Post date the review decision to 1981. The decision itself has not yet been located, so its number, its date, and whether the outcome was an acquittal (bebas) or a release from all charges (lepas) are still to be confirmed.",
+        fields: [["Action type", "Extraordinary appeal decision quashing a final judgment"],
+                 ["Document", "Putusan peninjauan kembali (Supreme Court review decision). Number to be confirmed"],
+                 ["Issued by", "Mahkamah Agung Republik Indonesia (Supreme Court of Indonesia)"],
+                 ["Date", "1981 as reported; official release determination 4 November 1980"],
+                 ["Local route", "Peninjauan kembali (PK) under PERMA No. 1 of 1980; request lodged through the Bekasi District Court on 3 November 1980"],
+                 ["Basis stated", "New evidence of innocence: another prisoner's confession, accepted as a new circumstance (academic account; decision not seen)"]] }
+    ],
+    triggers: [
+      ["Confession by another person", "Another man admitted the killings (Supreme Court news portal; Hukumonline). He and others were tried separately at the Bekasi District Court in cases 6/1980 and 7/1980 (Historia)."]
+    ],
+    basisTitle: "New evidence of innocence (as reported).",
+    basis: "Academic accounts say the Supreme Court accepted another prisoner's confession as a new circumstance. The decision itself has not been seen, so the basis is recorded as reported.",
+    factors: [],
+    factorNote: "No contributing factor is marked yet: none could be verified against an official finding. Later accounts say the two men were tortured into confessing (The Jakarta Post, 2008); this will be coded once a judgment or official record documents it.",
+    notMarked: [
+      ["False or coerced confession; torture", "Reported in later accounts (The Jakarta Post, 2008); no official finding located."]
+    ],
+    finality: "The Bandung High Court decided their appeal on 25 May 1978. Both men were serving their sentences when review was sought, and review (peninjauan kembali) lies only against a judgment with permanent legal force (berkekuatan hukum tetap). Whether there was a cassation, and the exact date of finality, are to be confirmed.",
+    compensation: [
+      ["Awarded", "Unknown"],
+      ["Note", "A civil claim filed in 1981 and decided in 1982 is reported; its outcome is to be confirmed. One academic account says they received no compensation"]
+    ],
+    verification: [
+      ["Criminal offense", "PASS", "Robbery and murder"],
+      ["Finality", "PASS", "Appeal decided by the Bandung High Court on 25 May 1978; both men were serving their sentences, and review lies only against a final judgment (date of finality to be confirmed)"],
+      ["Official post-conviction action", "PASS", "Supreme Court review granted; release determination of 4 November 1980; review decision reported as 1981"],
+      ["Judicial reversal (A)", "MARKED", "The review removed the convictions"],
+      ["Formal acknowledgment of error (B)", "NOT MARKED", ""],
+      ["Innocence-related relief (C)", "NOT MARKED", ""],
+      ["Documentation", "PENDING", "The review decision has not yet been located. The district and appeal judgments are cited by number on the Supreme Court's news portal"],
+      ["Inclusion determination", "PENDING", "Meets the finality and official-action criteria on the sources found; to be confirmed once the review decision can be cited"]
+    ],
+    timeline: [
+      { when: "20–21 November 1974", what: "A married couple is robbed and killed at their home in Bojongsari, Pondokgede sub-district, Bekasi." },
+      { when: "December 1974", what: "Sengkon and Karta are detained. Karta is released after about three weeks and detained again in July 1977." },
+      { when: "20 October 1977", what: "The Bekasi District Court convicts both men, sentencing Sengkon to 12 years and Karta to 7." },
+      { when: "25 May 1978", kind: "final", what: "The Bandung High Court decides their appeal. The convictions become final; the exact date is to be confirmed." },
+      { when: "1980", what: "Another prisoner admits the killings. The Supreme Court issues Regulation No. 1 of 1980 on review (peninjauan kembali)." },
+      { when: "3 November 1980", what: "The two men lodge a request for review through the Bekasi District Court and leave prison." },
+      { when: "4 November 1980", what: "An official release determination (penetapan) is issued." },
+      { when: "1981", kind: "A", what: "The Supreme Court's review decision, as reported. The decision itself is still to be located." }
+    ],
+    summary: {
+      background: ["Sengkon, a 48-year-old farmer from Pondok Ranggon, and Karta, 36, from Cakung Payangan, both in Pondokgede sub-district of Bekasi, were detained in December 1974 for the robbery and killing of a married couple at their home in the hamlet of Bojongsari on the night of 20–21 November 1974. Karta was released after about three weeks and detained again in July 1977. According to later accounts they were tortured into confessing (The Jakarta Post, 2008). On 20 October 1977 the Bekasi District Court convicted both and sentenced Sengkon to 12 years' imprisonment and Karta to 7; the prosecution had asked for 15 and 10. The Bandung High Court decided their appeal on 25 May 1978."],
+      emergence: ["Another man later admitted to the killings. By the account most often repeated he was a fellow prisoner in Cipinang. He and others were tried separately at the Bekasi District Court, in cases 6/1980 and 7/1980 (Historia). At the time Indonesian law provided for review of a final conviction only in principle, and the Supreme Court issued Regulation (PERMA) No. 1 of 1980 on review (peninjauan kembali) in response to the case. Sengkon and Karta lodged their request for review through the Bekasi District Court on 3 November 1980."],
+      path: ["The Supreme Court granted the review and the two men were freed. They left prison on 3 November 1980 for medical care, and the official release determination followed on 4 November 1980. The Supreme Court's news portal and The Jakarta Post date the review decision to 1981; how the 1980 determination relates to the review judgment is still to be confirmed. Review of final convictions was then written into the Code of Criminal Procedure of 1981 (KUHAP, art. 263 onwards), which was replaced on 2 January 2026. A civil claim for compensation is reported to have been filed in 1981 and decided in 1982."]
+    },
+    sources: [
+      { group: "Court judgments and decisions", items: [
+        { text: "Pengadilan Negeri Bekasi. Judgment No. 2/KTS/Bks/1977. 20 October 1977. Text reproduced in O. Seno Adji, Herziening, Ganti Rugi, Suap, Perkembangan Delik (Erlangga, 1984), pp. 109–161." },
+        { text: "Pengadilan Tinggi Bandung. Judgment No. 38/1978/Pid/PTB. 25 May 1978. Cited by MARINews." },
+        { text: "Mahkamah Agung. Peninjauan kembali decision, reported as 1981. Not yet located." } ] },
+      { group: "Official court publications", items: [
+        { text: "MARINews (Mahkamah Agung). Menjaga Marwah Peninjauan Kembali Perkara Pidana Sebagai Upaya Hukum Luar Biasa. 23 June 2026.", url: "https://marinews.mahkamahagung.go.id/artikel/menjaga-marwah-peninjauan-kembali-perkara-pidana-0bmo" },
+        { text: "MARINews (Mahkamah Agung). Kehadiran Pemohon/Terpidana dalam Persidangan PK. 14 May 2025.", url: "https://marinews.mahkamahagung.go.id/artikel/kehadiran-pemohonterpidana-dalam-persidangan-pk-0h5" } ] },
+      { group: "Legislation", items: [
+        { text: "PERMA No. 1 Tahun 1980. Published in K. Wantjik Saleh (Ghalia Indonesia, 1980)." },
+        { text: "UU No. 8 Tahun 1981 (KUHAP), Pasal 263.", url: "https://peraturan.bpk.go.id/Details/47041/uu-no-8-tahun-1981" } ] },
+      { group: "Academic publications", items: [
+        { text: "Yudhistira, A. (2009). Salah Hukum (Abuse of Justice) dalam Kasus Sengkon–Karta Perspektif Hukum Islam. Undergraduate thesis, UIN Sunan Kalijaga. Reproduces the 1977 judgment.", url: "https://digilib.uin-suka.ac.id/id/eprint/3083/1/BAB%20I%2CV.pdf" } ] },
+      { group: "Media reports (supporting context only)", items: [
+        { text: "Historia. Secuplik Kisah Salah Tangkap Sengkon dan Karta.", url: "https://www.historia.id/article/secuplik-kisah-salah-tangkap-sengkon-dan-karta-DLXbJ" },
+        { text: "Dandapala. Kisah Salah Tangkap Sengkon-Karta dan PK Pertama di Indonesia. 2025.", url: "https://dandapala.com/article/detail/kisah-salah-tangkap-sengkon-karta-dan-pk-pertama-di-indonesia" },
+        { text: "The Jakarta Post. Editorial: Defending wrong judgment. 2 September 2008.", url: "https://www.thejakartapost.com/news/2008/09/02/editorial-defending-wrong-judgment.html" },
+        { text: "Hukumonline. Kontribusi DNA Forensik dalam Merevisi Penghukuman yang Salah. 24 August 2020.", url: "https://www.hukumonline.com/berita/a/kontribusi-dna-forensik-dalam-merevisi-penghukuman-yang-salah-lt5f43324f02b87/" } ] }
+    ],
+    open: [
+      "The review judgment: its number and date, the grounds it states, whether the outcome was an acquittal (bebas) or a release from all charges (lepas), and how it relates to the release determination of 4 November 1980.",
+      "What the Bandung High Court decided in 1978, whether there was a cassation, and the date of finality.",
+      "Whether the men who confessed were convicted in Bekasi District Court cases 6/1980 and 7/1980.",
+      "The outcome of the civil compensation claim of 1981–82."
+    ]
+  },
+
+  {
     id: "ARWC-JPN-001",
     status: "Provisional record",
     review: "Coded to the codebook and source-checked on 1 October 2026. Awaiting confirmation by the co-developer for Japan.",
@@ -781,6 +887,7 @@ const RECORDS = [
     ageAtConviction: "32",
     sentence: "Death; held under the final sentence until his release in 2014",
     yearsLost: "47.6",
+    yearsLostNote: "Counted from his arrest on 18 August 1966 to his release on 27 March 2014. The ten years from his release to his acquittal in 2024, when the death sentence was suspended but not set aside, are not counted.",
     convicted: 1980,
     finalDate: "12 December 1980",
     actions: [
@@ -1002,7 +1109,8 @@ const RECORDS = [
     gender: "Male",
     ageAtConviction: "21",
     sentence: "Death (executed 13 August 1997)",
-    yearsLost: "0.9 (approximate)",
+    yearsLost: "0.9, in custody before execution (approximate)",
+    yearsLostNote: "Counted from his detention in early October 1996 to his execution on 13 August 1997 (reported as 314 days). Years lost measures time in custody; the execution is recorded separately.",
     convicted: 1997,
     finalDate: "21 July 1997",
     actions: [
@@ -1169,7 +1277,7 @@ const RECORDS = [
       ["Awarded", "Yes"],
       ["Amount", "RMB 4,960,521.50 (CNY), 2020, including RMB 1,570,000 for mental harm"],
       ["Decision", "State compensation decision, Jiangxi Higher People's Court"],
-      ["Acknowledges the wrongful conviction", "Yes; recorded as a Category B action, as for ARWC-CHN-0001. Whether the decision recites the wrongful conviction is to be confirmed"]
+      ["Acknowledges the wrongful conviction", "Yes; recorded as a Category B action, as for ARWC-CHN-001. Whether the decision recites the wrongful conviction is to be confirmed"]
     ],
     verification: [
       ["Criminal offense", "PASS", "Intentional homicide"],
@@ -1239,6 +1347,7 @@ const RECORDS = [
     ageAtConviction: "22",
     sentence: "Life imprisonment (무기징역), later commuted; released on parole in 2009",
     yearsLost: "20.1",
+    yearsLostNote: "Counted from his detention on 25 July 1989 to his release on parole on 14 August 2009. The years on parole before his acquittal in 2020 are not counted.",
     convicted: 1989, finalApprox: true,
     finalDate: "Not yet confirmed; after the first-instance judgment of 20 October 1989",
     actions: [
@@ -1367,6 +1476,7 @@ const RECORDS = [
     ageAtConviction: "Not known; the 2019 judgment records that one was 17 and two about 20",
     sentence: "Death for all six, as finally imposed by the Supreme Court in 2009",
     yearsLost: "About 14 to 16 for five of the six; about 9 for the sixth (approximate)",
+    yearsLostNote: "Release dates were not found, so for five of the six the count runs from arrest (June 2003, or October 2004 for one) to the acquittal on 5 March 2019, and may slightly overstate the time. The sixth was released in 2012 after being declared a juvenile.",
     convicted: 2009,
     finalDate: "30 April 2009",
     actions: [
@@ -1465,6 +1575,7 @@ const RECORDS = [
     ageAtConviction: "33 or 34 (computed)",
     sentence: "Life imprisonment",
     yearsLost: "14.7 (approximate)",
+    yearsLostNote: "Counted from his arrest about a week after the killing in December 2006 (exact date to confirm) to his release to house arrest on 26 August 2021. The 19 months of house arrest with electronic monitoring before his acquittal are not counted.",
     convicted: 2015,
     finalDate: "23 December 2015",
     actions: [
@@ -1568,7 +1679,8 @@ const RECORDS = [
     gender: "Male",
     ageAtConviction: "50",
     sentence: "Death (executed 4 April 1979)",
-    yearsLost: "1.6 (approximate)",
+    yearsLost: "1.6, in custody before execution (approximate)",
+    yearsLostNote: "Counted from his arrest on 3 September 1977 to his execution on 4 April 1979 (579 days). A possible short release in September 1977 is not confirmed and not deducted. Years lost measures time in custody; the execution is recorded separately.",
     convicted: 1979,
     finalDate: "24 March 1979",
     actions: [
@@ -1672,6 +1784,7 @@ const RECORDS = [
     ageAtConviction: "32 or 33 when convicted on appeal (computed)",
     sentence: "None imposed: the case was remitted for sentencing and then reopened",
     yearsLost: "8.8 (approximate)",
+    yearsLostNote: "His release date was not found, so the count runs from his arrest on 14 November 2011 to his acquittal on 17 September 2020, and may slightly overstate the time.",
     convicted: 2015,
     finalDate: "29 June 2015",
     actions: [
@@ -2178,7 +2291,7 @@ function pageRecord(id) {
     <div><dt>Conviction final</dt><dd class="num">${esc(r.finalDate)}</dd></div>
     <div><dt>First official action</dt><dd class="num">${esc(fa.date)}</dd></div>
     <div><dt>Years between</dt><dd class="num">${approx(r)}${gapYears(r)}</dd></div>
-    <div><dt>Years lost</dt><dd class="num">${esc(r.yearsLost)}</dd></div>
+    <div><dt>Years lost</dt><dd class="num">${esc(r.yearsLost)}${r.yearsLostNote ? `<span class="yl-note">${esc(r.yearsLostNote)}</span>` : ""}</dd></div>
   </dl>
 
   ${r.people ? `<section aria-labelledby="pplTitle">
@@ -2356,7 +2469,7 @@ function pageMethod() {
       <table>
         <thead><tr><th scope="col">Situation</th><th scope="col">Included?</th><th scope="col">Category</th><th scope="col">Why</th></tr></thead>
         <tbody>
-          <tr><td>Final conviction, later retrial acquittal, then a compensation decision acknowledging the wrongful conviction (${linkId("ARWC-CHN-0001")})</td><td>Yes</td><td>A and B</td><td>A court removed the finding of guilt, and a later decision formally acknowledged the error.</td></tr>
+          <tr><td>Final conviction, later retrial acquittal, then a compensation decision acknowledging the wrongful conviction (${linkId("ARWC-CHN-001")})</td><td>Yes</td><td>A and B</td><td>A court removed the finding of guilt, and a later decision formally acknowledged the error.</td></tr>
           <tr><td>Final conviction acquitted on extraordinary review (Peninjauan Kembali) after another person confesses</td><td>Yes</td><td>A</td><td>A court removed the finding of guilt through a post-conviction process.</td></tr>
           <tr><td>Compensation decision expressly recognizing a wrongful conviction, with no retrial acquittal yet</td><td>Yes, if documentation is sufficient</td><td>B</td><td>A competent authority formally acknowledged the error.</td></tr>
           <tr><td>Pardon granted on humanitarian grounds only</td><td>No</td><td>None</td><td>Relief alone is not enough unless the documents tie it to doubts about the conviction.</td></tr>
@@ -2609,7 +2722,7 @@ function pageGlossary() {
       G("Contributing factor", `A feature of the case that contributed to the conviction, coded as a parent factor (1–8) with optional subcategories and a note on its documentary basis. In pilot coding, a factor is marked only where the correcting authority found it or an official record documents it. <a href="#/factors">The factor list</a>`),
       G("Trigger", "What prompted the official action: the impetus for a correction, not its legal basis or its route."),
       G(`Real perpetrator identified ${draft}`, "In pilot coding, another person counts as identified only if a court convicted them or the correcting authority found them to be the offender. A confession alone is recorded as “confession by another person”."),
-      G("Years lost", "Years of liberty deprivation attributable to the conviction, from detention to release or, where the person was executed, to execution. Decimals are allowed, with a flag where the value is estimated."),
+      G("Years lost", "Years of liberty deprivation attributable to the conviction, from detention to release or, where the person was executed, to execution. It measures time in custody, not years of life lost: an execution is recorded in its own fields, and a record for an executed person says that the time shown was spent in custody before execution. Time after release, on parole, under house arrest or under a suspended sentence is not counted, and is noted on the record where it applies. Where the release date is not known, the count runs to the correcting decision and is flagged as approximate. Decimals are allowed, with a flag where the value is estimated."),
       G(`Age at conviction ${draft}`, "In pilot coding, the age at the first-instance judgment in the proceedings that became final."),
       G("Offense category and offense as charged", `A broad category for comparison (${cv(OFFENSE_CATS)}), alongside the charge as stated in the original language and an English gloss.`),
       G("Victim fields", "Number of victims, age group, relationship to the defendant, and whether an alleged victim later reappeared. Victims are not named; identifying details are internal.")
